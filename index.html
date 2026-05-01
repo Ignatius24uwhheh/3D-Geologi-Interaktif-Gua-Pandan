@@ -243,11 +243,14 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: var(--shadow-md);
+            height: 400px;
+            background-color: var(--secondary);
         }
 
         .about-image img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
             display: block;
             transition: var(--transition);
         }
@@ -263,13 +266,13 @@
 
         .geo-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* Dibuat menjadi sejajar 4 kolom lateral */
+            grid-template-columns: repeat(4, 1fr);
             gap: 25px;
         }
 
         .geo-card {
             background: var(--white);
-            padding: 30px 20px; /* Padding sedikit dikurangi untuk proporsi 4 kolom */
+            padding: 30px 20px;
             border-radius: 15px;
             box-shadow: var(--shadow-sm);
             transition: var(--transition);
@@ -283,18 +286,18 @@
         }
 
         .geo-icon {
-            font-size: 2.5rem; /* Ukuran ikon disesuaikan */
+            font-size: 2.5rem;
             color: var(--secondary);
             margin-bottom: 15px;
         }
 
         .geo-card h3 {
             margin-bottom: 15px;
-            font-size: 1.2rem; /* Ukuran font judul disesuaikan agar pas di lebar kartu */
+            font-size: 1.2rem;
         }
 
         .geo-card p {
-            font-size: 0.95rem; /* Ukuran teks sedikit disesuaikan agar mudah dibaca */
+            font-size: 0.95rem;
         }
 
         /* Timeline Pembentukan (Bonus) */
@@ -402,6 +405,7 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
+            justify-content: center;
         }
 
         .footer-bottom {
@@ -601,7 +605,7 @@
             border-radius: 15px;
             font-size: 0.9rem;
             line-height: 1.5;
-            white-space: pre-wrap; /* Menjaga line break dari AI */
+            white-space: pre-wrap;
         }
 
         .chat-ai {
@@ -683,7 +687,7 @@
                 grid-template-columns: 1fr;
             }
             .geo-grid {
-                grid-template-columns: repeat(2, 1fr); /* Tampil 2 kolom pada layar tablet */
+                grid-template-columns: repeat(2, 1fr);
             }
             .hero h1 {
                 font-size: 2.8rem;
@@ -728,7 +732,7 @@
                 left: 0;
             }
             .geo-grid {
-                grid-template-columns: 1fr; /* Tampil 1 kolom menumpuk pada layar mobile */
+                grid-template-columns: 1fr;
             }
             .info-panel {
                 top: auto;
@@ -811,7 +815,10 @@
                     <p>Berdasarkan berbagai studi dan jurnal geologi terpublikasi, litologi utama penyusun dinding dan lorong Gua Pandan adalah <strong>basalt vesikular</strong>. Batuan magmatik ini terbentuk ketika lava basaltik dengan viskositas rendah mendingin dengan sangat cepat, lalu memerangkap gas-gas vulkanik sehingga menciptakan struktur batuan dengan banyak rongga udara (vesikel). Gua ini menjadi laboratorium alam yang luar biasa untuk mempelajari jejak vulkanisme purba.</p>
                 </div>
                 <div class="about-image">
-                    <!-- MASUKKAN FOTO SISTEM GUA PANDAN ANDA DI SINI -->
+                    <!-- ========================================== -->
+                    <!-- MASUKKAN NAMA FILE FOTO ANDA PADA atribut src DI BAWAH INI -->
+                    <!-- Pastikan file foto berada di folder yang sama dengan file index.html -->
+                    <!-- ========================================== -->
                     <img src="foto-gua-pandan.jpg" alt="Sistem Lorong Lava Gua Pandan">
                 </div>
             </div>
@@ -822,7 +829,7 @@
             <div class="container">
                 <div class="section-header fade-up">
                     <h2>Fitur Geologi Goa Pandan</h2>
-                    <p>Anatomi goa dan formasi batuan yang menyusun ekosistem karst.</p>
+                    <p>Anatomi goa dan formasi batuan yang menyusun ekosistem vulkanik ini.</p>
                 </div>
 
                 <div class="geo-grid">
@@ -942,7 +949,7 @@
                 <i class="ph ph-x"></i>
             </button>
             <h3><i class="ph-fill ph-info"></i> Stasiun Eksplorasi</h3>
-            <p>Anda sedang berada di ruang utama Goa Pandan. Perhatikan formasi stalaktit masif di bagian atap.</p>
+            <p>Anda sedang berada di ruang virtual Gua Pandan. Perhatikan formasi dinding batuan basalt.</p>
             
             <div class="instruksi-box">
                 <strong>Cara Penggunaan:</strong>
@@ -968,212 +975,187 @@
 
     <!-- ================= AI CHATBOT (GEMINI API) ================= -->
     <button class="ai-btn-float" onclick="toggleAIChat()">
-        ✨ Tanya Ahli AI
+        <i class="ph-fill ph-sparkle"></i> Tanya Ahli AI
     </button>
 
     <div class="ai-chat-modal" id="aiChatModal">
         <div class="ai-chat-header">
             <div style="display: flex; align-items: center; gap: 8px;">
-                ✨ Ahli Geologi AI
+                <i class="ph-fill ph-sparkle"></i> Ahli Geologi AI
             </div>
-            <button onclick="toggleAIChat()"><i class="ph-bold ph-x"></i></button>
+            <button onclick="toggleAIChat()">
+                <i class="ph ph-x"></i>
+            </button>
         </div>
         <div class="ai-chat-body" id="chatBody">
             <div class="chat-bubble chat-ai">
-                Halo! Saya adalah asisten Geologi AI. Ada yang ingin Anda tanyakan seputar Goa Pandan atau ilmu batuan? 🪨
+                Halo! Saya asisten AI Geologi dari platform GeoPandan. Ada yang ingin Anda tanyakan seputar Gua Pandan, basalt, atau fenomena geologi lainnya?
             </div>
         </div>
         <div class="ai-chat-input">
-            <input type="text" id="chatInput" placeholder="Tanyakan tentang geologi..." onkeypress="handleChatKeyPress(event)">
-            <button onclick="sendChatMessage()"><i class="ph-fill ph-paper-plane-right"></i></button>
+            <input type="text" id="chatInput" placeholder="Tanyakan sesuatu..." onkeypress="handleEnter(event)">
+            <button onclick="sendMessage()">
+                <i class="ph-fill ph-paper-plane-right"></i>
+            </button>
         </div>
     </div>
 
-    <!-- ================= SCRIPT JAVASCRIPT ================= -->
+    <!-- ================= SCRIPTS ================= -->
     <script>
-        // --- KONFIGURASI API ---
-        const apiKey = ""; // API Key disuntikkan secara dinamis melalui environment.
+        /* === UI & INTERAKSI DASAR === */
 
-        // --- LOGIKA SINGLE PAGE APPLICATION (SPA) ---
-        const viewHome = document.getElementById('view-home');
-        const viewExplore = document.getElementById('view-explore');
-        const navLinksList = document.getElementById('nav-links');
-        const mobileMenuBtn = document.getElementById('mobile-menu');
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
 
-        function openExploreView() {
-            // Sembunyikan Home, Tampilkan Explore
-            viewHome.style.display = 'none';
-            viewExplore.style.display = 'block';
-            window.scrollTo(0, 0);
-            closeMobileMenu();
-        }
-
-        function closeExploreView() {
-            // Sembunyikan Explore, Tampilkan Home
-            viewExplore.style.display = 'none';
-            viewHome.style.display = 'block';
-            window.scrollTo(0, 0);
-        }
-
-        // --- LOGIKA UI & NAVIGASI ---
-        
-        // Toggle Menu Mobile
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinksList.classList.toggle('active');
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
 
         function closeMobileMenu() {
-            if(navLinksList.classList.contains('active')) {
-                navLinksList.classList.remove('active');
+            if(window.innerWidth <= 768) {
+                navLinks.classList.remove('active');
             }
         }
 
-        // Animasi Navbar saat Scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                nav.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
-            } else {
-                nav.style.boxShadow = 'var(--shadow-sm)';
-            }
-        });
+        // View Toggles (Home <-> Explore)
+        function openExploreView() {
+            document.getElementById('view-home').style.display = 'none';
+            document.getElementById('view-explore').style.display = 'block';
+            closeMobileMenu();
+            // Menyembunyikan floating button chat AI saat eksplorasi fullscreen agar tidak mengganggu
+            document.querySelector('.ai-btn-float').style.display = 'none';
+            document.getElementById('aiChatModal').style.display = 'none';
+        }
 
-        // Intersection Observer untuk Animasi Fade-Up pada elemen
+        function closeExploreView() {
+            document.getElementById('view-explore').style.display = 'none';
+            document.getElementById('view-home').style.display = 'block';
+            document.querySelector('.ai-btn-float').style.display = 'flex';
+            window.scrollTo(0, 0);
+        }
+
+        // Scroll Animations (Intersection Observer)
         const observerOptions = {
             threshold: 0.1,
             rootMargin: "0px 0px -50px 0px"
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        const observer = new IntersectionObserver(function(entries, observer) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); // Animasi hanya berjalan 1 kali
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        // Jalankan observer pada semua elemen beralias .fade-up
         document.querySelectorAll('.fade-up').forEach(el => {
             observer.observe(el);
         });
 
 
-        // --- LOGIKA AI CHATBOT (GEMINI API) ---
-        const aiChatModal = document.getElementById('aiChatModal');
+        /* === AI CHATBOT LOGIC (GEMINI API) === */
+        
+        // Aturan ketat dari sistem: API Key harus kosong
+        const apiKey = ""; 
+        const systemPrompt = "Anda adalah Ahli Geologi virtual yang bertugas di platform Geoheritage Goa Pandan, Lampung Timur. Goa Pandan adalah fenomena geologi lorong lava (lava tube) yang terbuat dari basalt vesikular. Berikan jawaban yang ramah, informatif, singkat, dan mudah dimengerti terkait geologi, vulkanisme, atau Gua Pandan.";
+
+        const chatModal = document.getElementById('aiChatModal');
         const chatBody = document.getElementById('chatBody');
         const chatInput = document.getElementById('chatInput');
 
-        // Buka/Tutup Modal Chat
         function toggleAIChat() {
-            if (aiChatModal.style.display === 'flex') {
-                aiChatModal.style.display = 'none';
+            if (chatModal.style.display === 'flex') {
+                chatModal.style.display = 'none';
             } else {
-                aiChatModal.style.display = 'flex';
+                chatModal.style.display = 'flex';
                 chatInput.focus();
             }
         }
 
-        // Event Listener untuk Enter di input
-        function handleChatKeyPress(event) {
-            if (event.key === 'Enter') {
-                sendChatMessage();
+        function handleEnter(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
             }
         }
 
-        // Fungsi Utama Pengiriman Pesan
-        async function sendChatMessage() {
-            const message = chatInput.value.trim();
-            if (!message) return;
-
-            // 1. Tambahkan Pesan User ke UI
-            addMessageToChat(message, 'user');
-            chatInput.value = '';
-
-            // 2. Tambahkan Indikator Loading dari AI
-            const loadingId = addLoadingBubble();
-
-            // 3. Panggil API Gemini dengan Backoff
-            try {
-                const responseText = await fetchGeminiWithBackoff(message);
-                removeElement(loadingId);
-                addMessageToChat(responseText, 'ai');
-            } catch (error) {
-                console.error("Gemini API Error:", error);
-                removeElement(loadingId);
-                addMessageToChat('Maaf, saya mengalami gangguan koneksi ke server. Silakan coba beberapa saat lagi.', 'ai');
+        function appendMessage(text, isUser = false, isLoading = false) {
+            const bubble = document.createElement('div');
+            bubble.classList.add('chat-bubble');
+            bubble.classList.add(isUser ? 'chat-user' : 'chat-ai');
+            
+            if (isLoading) {
+                bubble.id = 'loadingBubble';
+                bubble.innerHTML = `
+                    <div class="loading-dots">
+                        <span></span><span></span><span></span>
+                    </div>`;
+            } else {
+                bubble.textContent = text;
             }
-        }
 
-        // Menambahkan elemen pesan ke dalam UI Chat
-        function addMessageToChat(text, sender) {
-            const div = document.createElement('div');
-            div.className = `chat-bubble chat-${sender}`;
-            div.textContent = text; // Gunakan textContent agar aman dari XSS
-            chatBody.appendChild(div);
-            // Scroll ke bawah secara otomatis
+            chatBody.appendChild(bubble);
             chatBody.scrollTop = chatBody.scrollHeight;
         }
 
-        // Menambahkan elemen animasi loading
-        function addLoadingBubble() {
-            const id = 'loading-' + Date.now();
-            const div = document.createElement('div');
-            div.id = id;
-            div.className = `chat-bubble chat-ai`;
-            div.innerHTML = `<div class="loading-dots"><span></span><span></span><span></span></div>`;
-            chatBody.appendChild(div);
-            chatBody.scrollTop = chatBody.scrollHeight;
-            return id;
+        function removeLoading() {
+            const loading = document.getElementById('loadingBubble');
+            if (loading) loading.remove();
         }
 
-        // Menghapus elemen (dipakai untuk menghilangkan loading)
-        function removeElement(id) {
-            const el = document.getElementById(id);
-            if (el) el.remove();
-        }
-
-        // Fungsi Fetch API menggunakan Exponential Backoff
-        async function fetchGeminiWithBackoff(prompt, maxRetries = 5) {
+        async function fetchGeminiResponse(userText, retries = 5) {
+            const delays = [1000, 2000, 4000, 8000, 16000];
             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-            const systemPrompt = "Anda adalah Ahli Geologi AI yang dipekerjakan pada platform Geoheritage Gua Pandan. Jawablah pertanyaan seputar lorong lava (lava tube), formasi basalt vesikular, vulkanisme di Lampung Timur, dan ilmu kebumian lainnya. Gunakan bahasa Indonesia yang ramah, edukatif, dan mudah dipahami masyarakat umum. Batasi jawaban agar ringkas namun berbobot.";
-
+            
             const payload = {
-                contents: [{ parts: [{ text: prompt }] }],
+                contents: [{ parts: [{ text: userText }] }],
                 systemInstruction: { parts: [{ text: systemPrompt }] }
             };
 
-            const delays = [1000, 2000, 4000, 8000, 16000];
-
-            for (let i = 0; i <= maxRetries; i++) {
+            for (let i = 0; i < retries; i++) {
                 try {
                     const response = await fetch(url, {
                         method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
                         body: JSON.stringify(payload)
                     });
 
                     if (!response.ok) {
-                        throw new Error(`HTTP Error: ${response.status}`);
+                        throw new Error(`HTTP error! status: ${response.status}`);
                     }
 
-                    const data = await response.json();
-                    
-                    // Ekstraksi jawaban teks
-                    if (data.candidates && data.candidates[0].content && data.candidates[0].content.parts) {
-                        return data.candidates[0].content.parts[0].text;
-                    } else {
-                        return "Maaf, respon tidak dapat diproses.";
-                    }
+                    const result = await response.json();
+                    return result.candidates?.[0]?.content?.parts?.[0]?.text || "Maaf, saya belum dapat merangkai jawaban untuk itu.";
 
                 } catch (error) {
-                    if (i === maxRetries) {
-                        throw error; // Lempar error jika semua upaya telah gagal
+                    if (i === retries - 1) {
+                        return "Koneksi terputus. Mohon maaf, silakan coba lagi nanti ya.";
                     }
-                    // Tunggu sebelum mencoba lagi (Exponential Backoff)
-                    await new Promise(resolve => setTimeout(resolve, delays[i]));
+                    await new Promise(res => setTimeout(res, delays[i]));
                 }
             }
+        }
+
+        async function sendMessage() {
+            const text = chatInput.value.trim();
+            if (!text) return;
+
+            // 1. Tampilkan pesan user
+            appendMessage(text, true);
+            chatInput.value = '';
+
+            // 2. Tampilkan loading AI
+            appendMessage('', false, true);
+
+            // 3. Panggil API dengan backoff
+            const aiResponseText = await fetchGeminiResponse(text);
+
+            // 4. Hapus loading, tampilkan hasil
+            removeLoading();
+            appendMessage(aiResponseText, false);
         }
     </script>
 </body>
