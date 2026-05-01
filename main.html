@@ -293,60 +293,92 @@
           const viewerRef = useRef(null);
 
           useEffect(() => {
-            // Inisialisasi library Pannellum secara dinamis
+            let isMounted = true;
+            
+            // Fungsi untuk memuat Pannellum dengan perlindungan DOM Check
             const initViewer = () => {
-              if (window.pannellum) {
-                viewerRef.current = window.pannellum.viewer('panorama-container', {
-                  type: "equirectangular",
-                  panorama: "https://pannellum.org/images/alma.jpg", 
-                  autoLoad: true,
-                  compass: false,
-                  showZoomCtrl: true,
-                  showFullscreenCtrl: true,
-                  pitch: -5,
-                  yaw: 15,
-                  hfov: 110,
-                  hotSpots: [
-                    {
-                      pitch: 12,
-                      yaw: 45,
-                      type: "info",
-                      text: "Stalaktit Kalsit: Endapan mineral kalsium karbonat yang menggantung di atap goa akibat proses pelarutan ribuan tahun."
-                    },
-                    {
-                      pitch: -20,
-                      yaw: -30,
-                      type: "info",
-                      text: "Struktur Karst Dasar: Jejak erosi air tanah pada batuan gamping yang menciptakan rekahan lantai goa."
-                    },
-                    {
-                      pitch: 5,
-                      yaw: 160,
-                      type: "info",
-                      text: "Pilar Goa (Stalagnat): Titik pertemuan yang luar biasa antara stalaktit dan stalagmit yang menyatu menjadi pilar penyangga."
-                    }
-                  ]
-                });
+              if (!isMounted) return;
+              
+              const container = document.getElementById('panorama-container');
+              
+              // Cek ganda memastikan window.pannellum dan container div tersedia
+              if (window.pannellum && container) {
+                try {
+                  viewerRef.current = window.pannellum.viewer('panorama-container', {
+                    type: "equirectangular",
+                    panorama: "https://pannellum.org/images/alma.jpg", 
+                    autoLoad: true,
+                    compass: false,
+                    showZoomCtrl: true,
+                    showFullscreenCtrl: true,
+                    pitch: -5,
+                    yaw: 15,
+                    hfov: 110,
+                    hotSpots: [
+                      {
+                        pitch: 12,
+                        yaw: 45,
+                        type: "info",
+                        text: "Stalaktit Kalsit: Endapan mineral kalsium karbonat yang menggantung di atap goa akibat proses pelarutan ribuan tahun."
+                      },
+                      {
+                        pitch: -20,
+                        yaw: -30,
+                        type: "info",
+                        text: "Struktur Karst Dasar: Jejak erosi air tanah pada batuan gamping yang menciptakan rekahan lantai goa."
+                      },
+                      {
+                        pitch: 5,
+                        yaw: 160,
+                        type: "info",
+                        text: "Pilar Goa (Stalagnat): Titik pertemuan yang luar biasa antara stalaktit dan stalagmit yang menyatu menjadi pilar penyangga."
+                      }
+                    ]
+                  });
+                } catch (error) {
+                  console.error("Gagal menginisialisasi Pannellum", error);
+                }
               }
             };
 
-            if (!window.pannellum) {
-              const script = document.createElement('script');
+            const scriptId = 'pannellum-js-lib';
+            const cssId = 'pannellum-css-lib';
+            let script = document.getElementById(scriptId);
+
+            // Muat script HANYA jika belum ada sama sekali
+            if (!script && !window.pannellum) {
+              script = document.createElement('script');
+              script.id = scriptId;
               script.src = "https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js";
               script.onload = initViewer;
               document.head.appendChild(script);
 
-              const css = document.createElement('link');
-              css.rel = "stylesheet";
-              css.href = "https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css";
-              document.head.appendChild(css);
+              if (!document.getElementById(cssId)) {
+                const css = document.createElement('link');
+                css.id = cssId;
+                css.rel = "stylesheet";
+                css.href = "https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css";
+                document.head.appendChild(css);
+              }
+            } else if (script && !window.pannellum) {
+              // Jika tag script sudah ada tapi lib belum selesai ter-download (user cepat bernavigasi)
+              script.addEventListener('load', initViewer);
             } else {
+              // Jika lib sudah di cache dari kunjungan halaman sebelumnya
               initViewer();
             }
 
+            // Cleanup saat komponen unmount (misal user klik "Kembali")
             return () => {
+              isMounted = false;
               if (viewerRef.current) {
-                viewerRef.current.destroy();
+                try { 
+                  viewerRef.current.destroy(); 
+                  viewerRef.current = null;
+                } catch(e) {}
+              }
+              if (script) {
+                script.removeEventListener('load', initViewer);
               }
             };
           }, []);
@@ -416,8 +448,10 @@
            GLOBAL STYLES INJECTION
         ========================================= */
         function GlobalStyles() {
+          // Menghindari penggunaan dangerouslySetInnerHTML pada tag style 
+          // yang kadang diblokir / dibaca error oleh Babel Standalone
           return (
-            <style dangerouslySetInnerHTML={{__html: `
+            <style>{`
               @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
               
               body {
@@ -473,7 +507,7 @@
               ::-webkit-scrollbar-track { background: #0f0f0f; }
               ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
               ::-webkit-scrollbar-thumb:hover { background: #06b6d4; }
-            `}} />
+            `}</style>
           );
         }
 
