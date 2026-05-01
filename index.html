@@ -263,13 +263,13 @@
 
         .geo-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(4, 1fr); /* Dibuat menjadi sejajar 4 kolom lateral */
+            gap: 25px;
         }
 
         .geo-card {
             background: var(--white);
-            padding: 40px 30px;
+            padding: 30px 20px; /* Padding sedikit dikurangi untuk proporsi 4 kolom */
             border-radius: 15px;
             box-shadow: var(--shadow-sm);
             transition: var(--transition);
@@ -283,14 +283,18 @@
         }
 
         .geo-icon {
-            font-size: 3rem;
+            font-size: 2.5rem; /* Ukuran ikon disesuaikan */
             color: var(--secondary);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .geo-card h3 {
             margin-bottom: 15px;
-            font-size: 1.4rem;
+            font-size: 1.2rem; /* Ukuran font judul disesuaikan agar pas di lebar kartu */
+        }
+
+        .geo-card p {
+            font-size: 0.95rem; /* Ukuran teks sedikit disesuaikan agar mudah dibaca */
         }
 
         /* Timeline Pembentukan (Bonus) */
@@ -673,35 +677,13 @@
             100% { opacity: 0.2; }
         }
 
-        @media screen and (max-width: 768px) {
-            .ai-chat-modal {
-                width: calc(100% - 40px);
-                height: 60vh;
-                bottom: 80px;
-            }
-        }
-
-        /* === ANIMASI & EFEK === */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .fade-up {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         /* === RESPONSIVE DESIGN === */
         @media screen and (max-width: 992px) {
             .about-grid {
                 grid-template-columns: 1fr;
+            }
+            .geo-grid {
+                grid-template-columns: repeat(2, 1fr); /* Tampil 2 kolom pada layar tablet */
             }
             .hero h1 {
                 font-size: 2.8rem;
@@ -745,6 +727,9 @@
             .nav-links.active {
                 left: 0;
             }
+            .geo-grid {
+                grid-template-columns: 1fr; /* Tampil 1 kolom menumpuk pada layar mobile */
+            }
             .info-panel {
                 top: auto;
                 bottom: 20px;
@@ -752,6 +737,28 @@
                 left: 20px;
                 width: auto;
             }
+            .ai-chat-modal {
+                width: calc(100% - 40px);
+                height: 60vh;
+                bottom: 80px;
+            }
+        }
+
+        /* === ANIMASI & EFEK === */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -784,7 +791,7 @@
         <section id="beranda" class="hero">
             <div class="hero-content fade-up">
                 <h1>Eksplorasi 3D Gua Pandan Interaktif</h1>
-                <p>Bayangkan menjelajahi kedalaman Gua Pandan tanpa harus masuk langsung ke dalamnya. Melalui visualisasi 3D geologi interaktif, setiap lorong, struktur batuan, dan jejak proses alam tersaji secara nyata dan mudah dipahami. Proyek ini mengajak Anda merasakan pengalaman eksplorasi yang imersif-melihat, memutar, dan memahami bagaimana gua terbentuk dari waktu ke waktu. Mari nikmati perjalanan digital yang menghubungkan keindahan alam dengan ilmu geologi secara menarik dan interaktif.</p>
+                <p><strong>Jelajahi misteri lorong lava Gua Pandan</strong> tanpa harus beranjak dari tempat Anda! Lewat <strong>visualisasi 3D interaktif</strong>, putar dan singkap rahasia batuan vulkanik purba secara nyata. <strong>Rasakan sensasi petualangan imersif</strong> yang menggabungkan pesona alam dan keajaiban geologi hanya dalam satu klik.</p>
                 <button onclick="openExploreView()" class="btn-primary">
                     <i class="ph-bold ph-virtual-reality"></i> Lihat Eksplorasi 360°
                 </button>
