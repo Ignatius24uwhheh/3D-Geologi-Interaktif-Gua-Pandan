@@ -91,7 +91,7 @@
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 25px;
             list-style: none;
         }
 
@@ -100,6 +100,7 @@
             color: var(--text-main);
             transition: var(--transition);
             cursor: pointer;
+            font-size: 0.95rem;
         }
 
         .nav-links a:hover, .nav-links a.active {
@@ -109,7 +110,7 @@
         .btn-nav {
             background-color: var(--primary-dark);
             color: var(--white) !important;
-            padding: 10px 24px;
+            padding: 10px 20px;
             border-radius: 30px;
             font-weight: 500;
         }
@@ -303,7 +304,7 @@
             font-size: 0.95rem;
         }
 
-        /* Timeline Pembentukan (Bonus) */
+        /* Timeline Pembentukan */
         .timeline {
             position: relative;
             max-width: 800px;
@@ -365,6 +366,130 @@
         .timeline-content h4 {
             color: var(--secondary);
             margin-bottom: 10px;
+        }
+
+        /* Galeri Foto */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            height: 250px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: var(--white);
+            padding: 20px;
+            transition: bottom 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            bottom: 0;
+        }
+
+        /* Lokasi & Peta */
+        .location-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .location-info {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .location-info h3 {
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            text-align: center;
+            color: var(--primary-dark);
+        }
+
+        .location-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .location-details p {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 0;
+        }
+
+        .location-details i {
+            color: var(--primary-light);
+            font-size: 1.8rem;
+            margin-top: 2px;
+        }
+
+        .map-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border: 4px solid var(--white);
+            height: 450px;
+            width: 100%;
+            position: relative;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: contrast(1.05) saturate(1.1); /* Membuat warna peta lebih hidup */
+        }
+
+        .btn-map-float {
+            position: absolute;
+            bottom: 25px;
+            right: 25px;
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            transition: var(--transition);
+            text-decoration: none;
+            z-index: 10;
+        }
+
+        .btn-map-float:hover {
+            background: var(--primary-light);
+            color: var(--white) !important;
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.4);
         }
 
         /* Nilai Geoheritage */
@@ -788,7 +913,8 @@
                     <li><a href="#beranda" class="active" onclick="closeMobileMenu()">Beranda</a></li>
                     <li><a href="#latar-belakang" onclick="closeMobileMenu()">Tentang Gua</a></li>
                     <li><a href="#geologi" onclick="closeMobileMenu()">Geologi</a></li>
-                    <li><a href="#geoheritage" onclick="closeMobileMenu()">Geoheritage</a></li>
+                    <li><a href="#galeri" onclick="closeMobileMenu()">Galeri</a></li>
+                    <li><a href="#lokasi" onclick="closeMobileMenu()">Lokasi</a></li>
                     <li><a href="#" onclick="openExploreView()" class="btn-nav">Eksplorasi 360°</a></li>
                 </ul>
             </div>
@@ -871,7 +997,7 @@
             </div>
         </section>
 
-        <!-- Timeline Geologi (Bonus) -->
+        <!-- Timeline Geologi -->
         <section class="container">
             <div class="section-header fade-up">
                 <h2>Timeline Pembentukan</h2>
@@ -902,6 +1028,74 @@
                         <h4>Pendinginan & Pelapukan</h4>
                         <p>Lava sepenuhnya membeku membentuk batuan basalt vesikular. Seiring perjalanan waktu, proses pelapukan dan keruntuhan atap menyingkap pintu masuk menuju lorong Gua Pandan.</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galeri Visual (BAGIAN BARU) -->
+        <section id="galeri" class="bg-light">
+            <div class="container">
+                <div class="section-header fade-up">
+                    <h2>Galeri Fitur Gua</h2>
+                    <p>Jelajahi keindahan struktur batuan vulkanik yang menakjubkan melalui potret visual.</p>
+                </div>
+                
+                <div class="gallery-grid fade-up">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1549429188-69335d54cd51?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Lorong Lava">
+                        <div class="gallery-overlay">
+                            <h4>Lorong Utama</h4>
+                            <p style="font-size: 0.85rem; opacity: 0.8;">Bentuk lorong tabung sisa aliran lava pijar.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1582260655455-ceb8a24564c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Struktur Batuan">
+                        <div class="gallery-overlay">
+                            <h4>Basalt Vesikular</h4>
+                            <p style="font-size: 0.85rem; opacity: 0.8;">Permukaan batuan penuh rongga bekas gas terperangkap.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1498429089284-41f8cf3ffd39?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mulut Gua">
+                        <div class="gallery-overlay">
+                            <h4>Pintu Masuk (Sinkhole)</h4>
+                            <p style="font-size: 0.85rem; opacity: 0.8;">Area atap yang runtuh menyingkap jalur bawah tanah.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lokasi & Akses (BAGIAN BARU) -->
+        <section id="lokasi" class="container">
+            <div class="section-header fade-up">
+                <h2>Lokasi & Akses</h2>
+                <p>Panduan rute menuju situs Geoheritage Gua Pandan.</p>
+            </div>
+
+            <div class="location-grid fade-up">
+                <div class="location-info">
+                    <h3>Gua Pandan, Lampung Timur</h3>
+                    <div class="location-details">
+                        <p>
+                            <i class="ph-fill ph-map-pin"></i>
+                            <span>Sukadana, Kabupaten Lampung Timur, <br>Provinsi Lampung, Indonesia.</span>
+                        </p>
+                        <p>
+                            <i class="ph-fill ph-car-profile"></i>
+                            <span>Dapat diakses menggunakan kendaraan bermotor, dilanjutkan dengan berjalan kaki ringan menyusuri jalur setapak.</span>
+                        </p>
+                        <p>
+                            <i class="ph-fill ph-warning-circle"></i>
+                            <span>Disarankan membawa perlengkapan penerangan tambahan dan menggunakan alas kaki yang tidak licin.</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.16981663397!2d105.66716237452047!3d-5.391073253888763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40fa36a5b1d2b7%3A0xd9a1392387c317de!2sGOA%20PANDAN%20GIRI%20MULYO!5e0!3m2!1sen!2sid!4v1777660830794!5m2!1sen!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <a href="https://www.google.com/maps/search/?api=1&query=-5.3910732,105.6671624" target="_blank" class="btn-map-float">
+                        <i class="ph-bold ph-navigation-arrow"></i> Buka di Aplikasi Maps
+                    </a>
                 </div>
             </div>
         </section>
