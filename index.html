@@ -19,14 +19,15 @@
             --primary-dark: #1b4332;   /* Hijau tua natural */
             --primary-light: #2d6a4f;
             --secondary: #6b4f3a;      /* Coklat batu/tanah */
-            --bg-color: #fcfbf9;       /* Putih natural/kertas */
-            --bg-alt: #f3efe8;         /* Coklat sangat muda untuk variasi section */
+            --bg-color: #f0f2f5;       /* Abu-abu terang untuk background body agar blok putih menonjol */
+            --bg-alt: #e4e9e7;         /* Warna abu-abu alternatif */
             --text-main: #333333;
             --text-muted: #666666;
             --white: #ffffff;
             --transition: all 0.3s ease-in-out;
             --shadow-sm: 0 4px 6px rgba(0,0,0,0.05);
-            --shadow-md: 0 10px 20px rgba(0,0,0,0.08);
+            --shadow-md: 0 10px 30px rgba(0,0,0,0.06);
+            --shadow-lg: 0 15px 40px rgba(0,0,0,0.08);
         }
 
         /* === RESET & BASE === */
@@ -153,6 +154,7 @@
             color: var(--white);
             padding: 0 20px;
             margin-top: 0;
+            margin-bottom: 40px;
         }
 
         .hero-content {
@@ -194,14 +196,24 @@
             transform: scale(1.05);
         }
 
-        /* Section Global Styles */
+        /* === GLOBAL SECTION BLOCKS === */
         section {
-            padding: 100px 0;
+            padding: 40px 0;
+        }
+
+        /* Blok putih rapi yang membungkus setiap sub-bab */
+        .section-block {
+            background-color: var(--white);
+            border-radius: 24px;
+            padding: 60px 50px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            position: relative;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
 
         .section-header h2 {
@@ -215,7 +227,7 @@
             content: '';
             position: absolute;
             width: 60%;
-            height: 3px;
+            height: 4px;
             background-color: var(--secondary);
             bottom: -10px;
             left: 20%;
@@ -246,7 +258,7 @@
             position: relative;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-sm);
             height: 400px;
             background-color: var(--secondary);
         }
@@ -256,7 +268,7 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: var(--transition);
+            transition: transform 0.5s ease;
         }
 
         .about-image:hover img {
@@ -264,10 +276,6 @@
         }
 
         /* Geologi (Grid Cards) */
-        .bg-light {
-            background-color: var(--bg-alt);
-        }
-
         .geo-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -275,18 +283,18 @@
         }
 
         .geo-card {
-            background: var(--white);
-            padding: 30px 20px;
+            background: var(--bg-color); /* Kontras halus dengan blok putih */
+            padding: 35px 25px;
             border-radius: 15px;
-            box-shadow: var(--shadow-sm);
             transition: var(--transition);
             border-top: 4px solid transparent;
         }
 
         .geo-card:hover {
             transform: translateY(-10px);
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-sm);
             border-top-color: var(--primary-light);
+            background: var(--white);
         }
 
         .geo-icon {
@@ -302,6 +310,7 @@
 
         .geo-card p {
             font-size: 0.95rem;
+            color: var(--text-muted);
         }
 
         /* Timeline Pembentukan */
@@ -347,7 +356,7 @@
             right: -10px;
             background-color: var(--white);
             border: 4px solid var(--secondary);
-            top: 15px;
+            top: 25px; /* Disesuaikan dengan padding baru */
             border-radius: 50%;
             z-index: 1;
         }
@@ -357,15 +366,21 @@
         }
 
         .timeline-content {
-            padding: 20px;
-            background-color: var(--white);
-            border-radius: 10px;
+            padding: 25px;
+            background-color: var(--bg-color); /* Kontras halus dengan blok putih */
+            border-radius: 15px;
+            transition: var(--transition);
+        }
+        
+        .timeline-content:hover {
             box-shadow: var(--shadow-sm);
+            transform: translateY(-3px);
         }
 
         .timeline-content h4 {
             color: var(--secondary);
             margin-bottom: 10px;
+            font-size: 1.2rem;
         }
 
         /* Galeri Foto */
@@ -377,18 +392,18 @@
 
         .gallery-item {
             position: relative;
-            border-radius: 12px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: var(--shadow-sm);
             height: 250px;
             cursor: pointer;
+            box-shadow: var(--shadow-sm);
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s ease;
         }
 
         .gallery-item:hover img {
@@ -400,10 +415,10 @@
             bottom: -100%;
             left: 0;
             width: 100%;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
             color: var(--white);
-            padding: 20px;
-            transition: bottom 0.3s ease;
+            padding: 25px 20px;
+            transition: bottom 0.4s ease;
         }
 
         .gallery-item:hover .gallery-overlay {
@@ -418,10 +433,9 @@
         }
 
         .location-info {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: var(--shadow-sm);
+            background: var(--bg-color); /* Latar halus */
+            padding: 35px 40px;
+            border-radius: 20px;
         }
 
         .location-info h3 {
@@ -440,8 +454,9 @@
         .location-details p {
             display: flex;
             align-items: flex-start;
-            gap: 12px;
+            gap: 15px;
             margin-bottom: 0;
+            color: var(--text-main);
         }
 
         .location-details i {
@@ -453,8 +468,8 @@
         .map-container {
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
             border: 4px solid var(--white);
+            box-shadow: var(--shadow-sm);
             height: 450px;
             width: 100%;
             position: relative;
@@ -464,7 +479,7 @@
             width: 100%;
             height: 100%;
             border: none;
-            filter: contrast(1.05) saturate(1.1); /* Membuat warna peta lebih hidup */
+            filter: contrast(1.05) saturate(1.1);
         }
 
         .btn-map-float {
@@ -497,9 +512,9 @@
             background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
             color: var(--white);
             padding: 60px;
-            border-radius: 20px;
+            border-radius: 24px;
             text-align: center;
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-lg);
         }
 
         .heritage-box h2 {
@@ -520,6 +535,7 @@
             color: var(--white);
             padding: 60px 0 20px;
             text-align: center;
+            margin-top: 40px;
         }
 
         .footer-content {
@@ -557,7 +573,6 @@
             animation: fadeIn 0.5s ease-in-out;
         }
 
-        /* Iframe Kuula Container */
         .kuula-container {
             width: 100%;
             height: 100%;
@@ -570,7 +585,6 @@
             border: none;
         }
 
-        /* Floating Back Button */
         .btn-back-float {
             position: absolute;
             top: 20px;
@@ -595,7 +609,6 @@
             transform: translateX(-5px);
         }
 
-        /* Floating Info Panel */
         .info-panel {
             position: absolute;
             top: 20px;
@@ -811,6 +824,9 @@
 
         /* === RESPONSIVE DESIGN === */
         @media screen and (max-width: 992px) {
+            .section-block {
+                padding: 40px 30px;
+            }
             .about-grid {
                 grid-template-columns: 1fr;
             }
@@ -842,6 +858,10 @@
         @media screen and (max-width: 768px) {
             .menu-toggle {
                 display: block;
+            }
+            .section-block {
+                padding: 30px 20px;
+                border-radius: 16px;
             }
             .nav-links {
                 position: fixed;
@@ -933,33 +953,35 @@
 
         <!-- Latar Belakang Section -->
         <section id="latar-belakang" class="container">
-            <div class="section-header fade-up">
-                <h2>Latar Belakang Geologi</h2>
-                <p>Memahami proses alamiah yang membentuk mahakarya bawah tanah.</p>
-            </div>
-            
-            <div class="about-grid fade-up">
-                <div class="about-text">
-                    <p><strong>Gua Pandan</strong> yang berlokasi di <strong>Lampung Timur</strong> adalah salah satu fenomena geologi yang unik dan memukau. Berbeda dengan mayoritas sistem gua di Indonesia yang terbentuk dari pelarutan batu gamping (karst), Gua Pandan merupakan <strong>lorong lava (lava tube)</strong>. Gua ini terbentuk dari proses pendinginan aliran magma vulkanik pada masa lampau.</p>
-                    <p>Berdasarkan berbagai studi dan jurnal geologi terpublikasi, litologi utama penyusun dinding dan lorong Gua Pandan adalah <strong>basalt vesikular</strong>. Batuan magmatik ini terbentuk ketika lava basaltik dengan viskositas rendah mendingin dengan sangat cepat, lalu memerangkap gas-gas vulkanik sehingga menciptakan struktur batuan dengan banyak rongga udara (vesikel). Gua ini menjadi laboratorium alam yang luar biasa untuk mempelajari jejak vulkanisme purba.</p>
+            <div class="section-block fade-up">
+                <div class="section-header">
+                    <h2>Latar Belakang Geologi</h2>
+                    <p>Memahami proses alamiah yang membentuk mahakarya bawah tanah.</p>
                 </div>
-                <div class="about-image">
-                    <img src="foto-gua-pandan.jpg" alt="Sistem Lorong Lava Gua Pandan">
+                
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p><strong>Gua Pandan</strong> yang berlokasi di <strong>Lampung Timur</strong> adalah salah satu fenomena geologi yang unik dan memukau. Berbeda dengan mayoritas sistem gua di Indonesia yang terbentuk dari pelarutan batu gamping (karst), Gua Pandan merupakan <strong>lorong lava (lava tube)</strong>. Gua ini terbentuk dari proses pendinginan aliran magma vulkanik pada masa lampau.</p>
+                        <p>Berdasarkan berbagai studi dan jurnal geologi terpublikasi, litologi utama penyusun dinding dan lorong Gua Pandan adalah <strong>basalt vesikular</strong>. Batuan magmatik ini terbentuk ketika lava basaltik dengan viskositas rendah mendingin dengan sangat cepat, lalu memerangkap gas-gas vulkanik sehingga menciptakan struktur batuan dengan banyak rongga udara (vesikel). Gua ini menjadi laboratorium alam yang luar biasa untuk mempelajari jejak vulkanisme purba.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="foto-gua-pandan.jpg" alt="Sistem Lorong Lava Gua Pandan">
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Penjelasan Geologi Detail Section -->
-        <section id="geologi" class="bg-light">
-            <div class="container">
-                <div class="section-header fade-up">
+        <section id="geologi" class="container">
+            <div class="section-block fade-up">
+                <div class="section-header">
                     <h2>Fitur Geologi Gua Pandan</h2>
                     <p>Anatomi gua dan formasi batuan yang menyusun ekosistem vulkanik ini.</p>
                 </div>
 
                 <div class="geo-grid">
                     <!-- Card 1 -->
-                    <div class="geo-card fade-up">
+                    <div class="geo-card">
                         <div class="geo-icon">
                             <i class="ph-duotone ph-fire"></i>
                         </div>
@@ -968,7 +990,7 @@
                     </div>
 
                     <!-- Card 2 -->
-                    <div class="geo-card fade-up" style="transition-delay: 0.1s;">
+                    <div class="geo-card">
                         <div class="geo-icon">
                             <i class="ph-duotone ph-hexagon"></i>
                         </div>
@@ -977,7 +999,7 @@
                     </div>
 
                     <!-- Card 3 -->
-                    <div class="geo-card fade-up" style="transition-delay: 0.2s;">
+                    <div class="geo-card">
                         <div class="geo-icon">
                             <i class="ph-duotone ph-drop-half-bottom"></i>
                         </div>
@@ -986,7 +1008,7 @@
                     </div>
 
                     <!-- Card 4 -->
-                    <div class="geo-card fade-up" style="transition-delay: 0.3s;">
+                    <div class="geo-card">
                         <div class="geo-icon">
                             <i class="ph-duotone ph-mountains"></i>
                         </div>
@@ -998,49 +1020,51 @@
         </section>
 
         <!-- Timeline Geologi -->
-        <section class="container">
-            <div class="section-header fade-up">
-                <h2>Timeline Pembentukan</h2>
-                <p>Bagaimana Gua Pandan berevolusi melintasi waktu geologi.</p>
-            </div>
+        <section id="timeline" class="container">
+            <div class="section-block fade-up">
+                <div class="section-header">
+                    <h2>Timeline Pembentukan</h2>
+                    <p>Bagaimana Gua Pandan berevolusi melintasi waktu geologi.</p>
+                </div>
 
-            <div class="timeline fade-up">
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <h4>Aktivitas Erupsi Magma</h4>
-                        <p>Magma basaltis berviskositas sangat rendah mengalir deras ke permukaan bumi, menyebar luas dan membentuk aliran lava pijar di wilayah Lampung Timur.</p>
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h4>Aktivitas Erupsi Magma</h4>
+                            <p>Magma basaltis berviskositas sangat rendah mengalir deras ke permukaan bumi, menyebar luas dan membentuk aliran lava pijar di wilayah Lampung Timur.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <h4>Pembentukan Kerak Permukaan</h4>
-                        <p>Bagian terluar aliran lava yang terekspos udara bersuhu lebih dingin mengalami pembekuan cepat, membentuk kerak keras (atap) yang mengisolasi panas lava di bawahnya.</p>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h4>Pembentukan Kerak Permukaan</h4>
+                            <p>Bagian terluar aliran lava yang terekspos udara bersuhu lebih dingin mengalami pembekuan cepat, membentuk kerak keras (atap) yang mengisolasi panas lava di bawahnya.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <h4>Pengosongan Terowongan</h4>
-                        <p>Erupsi berhenti dan suplai magma dari pusat terputus. Sisa lava cair di dalam lorong terus mengalir akibat gaya gravitasi, mengosongkan isi ruang dan membentuk lava tube.</p>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h4>Pengosongan Terowongan</h4>
+                            <p>Erupsi berhenti dan suplai magma dari pusat terputus. Sisa lava cair di dalam lorong terus mengalir akibat gaya gravitasi, mengosongkan isi ruang dan membentuk lava tube.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <h4>Pendinginan & Pelapukan</h4>
-                        <p>Lava sepenuhnya membeku membentuk batuan basalt vesikular. Seiring perjalanan waktu, proses pelapukan dan keruntuhan atap menyingkap pintu masuk menuju lorong Gua Pandan.</p>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h4>Pendinginan & Pelapukan</h4>
+                            <p>Lava sepenuhnya membeku membentuk batuan basalt vesikular. Seiring perjalanan waktu, proses pelapukan dan keruntuhan atap menyingkap pintu masuk menuju lorong Gua Pandan.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Galeri Visual (BAGIAN BARU) -->
-        <section id="galeri" class="bg-light">
-            <div class="container">
-                <div class="section-header fade-up">
+        <!-- Galeri Visual -->
+        <section id="galeri" class="container">
+            <div class="section-block fade-up">
+                <div class="section-header">
                     <h2>Galeri Fitur Gua</h2>
                     <p>Jelajahi keindahan struktur batuan vulkanik yang menakjubkan melalui potret visual.</p>
                 </div>
                 
-                <div class="gallery-grid fade-up">
+                <div class="gallery-grid">
                     <div class="gallery-item">
                         <img src="https://images.unsplash.com/photo-1549429188-69335d54cd51?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Lorong Lava">
                         <div class="gallery-overlay">
@@ -1066,36 +1090,38 @@
             </div>
         </section>
 
-        <!-- Lokasi & Akses (BAGIAN BARU) -->
+        <!-- Lokasi & Akses -->
         <section id="lokasi" class="container">
-            <div class="section-header fade-up">
-                <h2>Lokasi & Akses</h2>
-                <p>Panduan rute menuju situs Geoheritage Gua Pandan.</p>
-            </div>
-
-            <div class="location-grid fade-up">
-                <div class="location-info">
-                    <h3>Gua Pandan, Lampung Timur</h3>
-                    <div class="location-details">
-                        <p>
-                            <i class="ph-fill ph-map-pin"></i>
-                            <span>Sukadana, Kabupaten Lampung Timur, <br>Provinsi Lampung, Indonesia.</span>
-                        </p>
-                        <p>
-                            <i class="ph-fill ph-car-profile"></i>
-                            <span>Dapat diakses menggunakan kendaraan bermotor, dilanjutkan dengan berjalan kaki ringan menyusuri jalur setapak.</span>
-                        </p>
-                        <p>
-                            <i class="ph-fill ph-warning-circle"></i>
-                            <span>Disarankan membawa perlengkapan penerangan tambahan dan menggunakan alas kaki yang tidak licin.</span>
-                        </p>
-                    </div>
+            <div class="section-block fade-up">
+                <div class="section-header">
+                    <h2>Lokasi & Akses</h2>
+                    <p>Panduan rute menuju situs Geoheritage Gua Pandan.</p>
                 </div>
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.16981663397!2d105.66716237452047!3d-5.391073253888763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40fa36a5b1d2b7%3A0xd9a1392387c317de!2sGOA%20PANDAN%20GIRI%20MULYO!5e0!3m2!1sen!2sid!4v1777660830794!5m2!1sen!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    <a href="https://www.google.com/maps/search/?api=1&query=-5.3910732,105.6671624" target="_blank" class="btn-map-float">
-                        <i class="ph-bold ph-navigation-arrow"></i> Buka di Aplikasi Maps
-                    </a>
+
+                <div class="location-grid">
+                    <div class="location-info">
+                        <h3>Gua Pandan, Lampung Timur</h3>
+                        <div class="location-details">
+                            <p>
+                                <i class="ph-fill ph-map-pin"></i>
+                                <span>Sukadana, Kabupaten Lampung Timur, <br>Provinsi Lampung, Indonesia.</span>
+                            </p>
+                            <p>
+                                <i class="ph-fill ph-car-profile"></i>
+                                <span>Dapat diakses menggunakan kendaraan bermotor, dilanjutkan dengan berjalan kaki ringan menyusuri jalur setapak.</span>
+                            </p>
+                            <p>
+                                <i class="ph-fill ph-warning-circle"></i>
+                                <span>Disarankan membawa perlengkapan penerangan tambahan dan menggunakan alas kaki yang tidak licin.</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.16981663397!2d105.66716237452047!3d-5.391073253888763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40fa36a5b1d2b7%3A0xd9a1392387c317de!2sGOA%20PANDAN%20GIRI%20MULYO!5e0!3m2!1sen!2sid!4v1777660830794!5m2!1sen!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <a href="https://www.google.com/maps/search/?api=1&query=-5.3910732,105.6671624" target="_blank" class="btn-map-float">
+                            <i class="ph-bold ph-navigation-arrow"></i> Buka di Aplikasi Maps
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
