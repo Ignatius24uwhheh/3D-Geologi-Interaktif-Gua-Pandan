@@ -19,11 +19,12 @@
             --primary-dark: #1b4332;   /* Hijau tua natural */
             --primary-light: #2d6a4f;
             --secondary: #6b4f3a;      /* Coklat batu/tanah */
-            --bg-color: #f0f2f5;       /* Abu-abu terang untuk background body agar blok putih menonjol */
-            --bg-alt: #e4e9e7;         /* Warna abu-abu alternatif */
+            --theme-yellow: #f4d03f;   /* Aksen warna kuning baru untuk atas dan bawah */
+            --bg-color: #f7f4ea;       /* Latar utama menjadi beige/krem yang sangat soft */
+            --bg-alt: #ebe6d5;         /* Latar selang-seling krem lembut */
             --text-main: #333333;
             --text-muted: #666666;
-            --white: #ffffff;
+            --white: #fcfbf8;          /* Putih tulang/off-white yang lebih soft di mata */
             --transition: all 0.3s ease-in-out;
             --shadow-sm: 0 4px 6px rgba(0,0,0,0.05);
             --shadow-md: 0 10px 30px rgba(0,0,0,0.06);
@@ -67,7 +68,8 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            /* Latar Belakang Navbar Kuning dengan sedikit efek transparan (blur) */
+            background: rgba(244, 208, 63, 0.95); 
             backdrop-filter: blur(10px);
             z-index: 100;
             box-shadow: var(--shadow-sm);
@@ -97,15 +99,15 @@
         }
 
         .nav-links a {
-            font-weight: 500;
-            color: var(--text-main);
+            font-weight: 600;
+            color: var(--primary-dark);
             transition: var(--transition);
             cursor: pointer;
             font-size: 0.95rem;
         }
 
         .nav-links a:hover, .nav-links a.active {
-            color: var(--primary-light);
+            color: var(--white);
         }
 
         .btn-nav {
@@ -147,7 +149,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: var(--white);
+            color: #ffffff; /* Mempertahankan teks putih pada hero karena latar belakang gambar gelap */
             padding: 0 20px;
             margin-top: 0;
         }
@@ -157,7 +159,7 @@
         }
 
         .hero h1 {
-            color: var(--white);
+            color: #ffffff;
             font-size: 3.5rem;
             font-weight: 700;
             margin-bottom: 20px;
@@ -204,7 +206,7 @@
             position: relative;
         }
 
-        /* Latar selang-seling abu-abu untuk pemisah yang rapi */
+        /* Latar selang-seling krem lembut untuk pemisah yang rapi */
         .section-block.alt-bg {
             background-color: var(--bg-color); 
         }
@@ -226,7 +228,7 @@
             position: absolute;
             width: 60%;
             height: 4px;
-            background-color: var(--secondary);
+            background-color: var(--theme-yellow); /* Aksen kuning pada garis bawah judul */
             bottom: -10px;
             left: 20%;
             border-radius: 2px;
@@ -292,7 +294,7 @@
         .geo-card:hover {
             transform: translateY(-10px);
             box-shadow: var(--shadow-md);
-            border-top-color: var(--primary-light);
+            border-top-color: var(--theme-yellow);
         }
 
         .geo-icon {
@@ -322,7 +324,7 @@
             content: '';
             position: absolute;
             width: 4px;
-            background-color: var(--primary-light);
+            background-color: var(--theme-yellow);
             top: 0;
             bottom: 0;
             left: 50%;
@@ -353,7 +355,7 @@
             height: 20px;
             right: -10px;
             background-color: var(--white);
-            border: 4px solid var(--secondary);
+            border: 4px solid var(--primary-dark);
             top: 25px;
             border-radius: 50%;
             z-index: 1;
@@ -365,7 +367,7 @@
 
         .timeline-content {
             padding: 25px;
-            background-color: var(--bg-color);
+            background-color: var(--bg-alt);
             border-radius: 15px;
             transition: var(--transition);
         }
@@ -431,7 +433,7 @@
         }
 
         .location-info {
-            background: var(--bg-color);
+            background: var(--bg-alt);
             padding: 35px 40px;
             border-radius: 20px;
         }
@@ -499,8 +501,8 @@
         }
 
         .btn-map-float:hover {
-            background: var(--primary-light);
-            color: var(--white) !important;
+            background: var(--theme-yellow);
+            color: var(--primary-dark) !important;
             transform: translateY(-5px);
             box-shadow: 0 12px 25px rgba(0,0,0,0.4);
         }
@@ -508,14 +510,14 @@
         /* Nilai Geoheritage */
         .heritage-box {
             background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
-            color: var(--white);
+            color: #ffffff;
             padding: 80px 0;
             width: 100%;
             text-align: center;
         }
 
         .heritage-box h2 {
-            color: var(--white);
+            color: var(--theme-yellow); /* Judul menggunakan aksen kuning */
             margin-bottom: 20px;
         }
 
@@ -528,8 +530,8 @@
 
         /* Footer */
         footer {
-            background-color: #112a20;
-            color: var(--white);
+            background-color: var(--theme-yellow); /* Background Kuning Sama Dengan Nav */
+            color: var(--primary-dark); /* Teks di footer menjadi warna gelap agar kontras */
             padding: 60px 0 20px;
             text-align: center;
         }
@@ -546,13 +548,14 @@
             align-items: center;
             gap: 10px;
             justify-content: center;
+            color: var(--primary-dark);
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(0,0,0,0.1); /* Garis batas dipergelap sedikit */
             padding-top: 20px;
             font-size: 0.9rem;
-            opacity: 0.7;
+            opacity: 0.8;
         }
 
 
@@ -586,7 +589,7 @@
             top: 20px;
             left: 20px;
             background: rgba(27, 67, 50, 0.85);
-            color: var(--white);
+            color: #ffffff;
             padding: 12px 20px;
             border-radius: 8px;
             display: flex;
@@ -601,7 +604,8 @@
         }
 
         .btn-back-float:hover {
-            background: var(--primary-dark);
+            background: var(--theme-yellow);
+            color: var(--primary-dark);
             transform: translateX(-5px);
         }
 
@@ -625,6 +629,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            color: var(--primary-dark);
         }
 
         .info-panel p {
@@ -669,24 +674,24 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: linear-gradient(135deg, #06b6d4, #3b82f6);
-            color: white;
+            background: linear-gradient(135deg, var(--theme-yellow), #f39c12);
+            color: var(--primary-dark);
             padding: 15px 25px;
             border-radius: 30px;
             display: flex;
             align-items: center;
             gap: 10px;
-            font-weight: 600;
+            font-weight: 700;
             border: none;
             cursor: pointer;
-            box-shadow: 0 10px 20px rgba(6, 182, 212, 0.4);
+            box-shadow: 0 10px 20px rgba(243, 156, 18, 0.4);
             z-index: 2000;
             transition: var(--transition);
         }
 
         .ai-btn-float:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 25px rgba(6, 182, 212, 0.6);
+            box-shadow: 0 15px 25px rgba(243, 156, 18, 0.6);
         }
 
         .ai-chat-modal {
@@ -707,19 +712,19 @@
         }
 
         .ai-chat-header {
-            background: linear-gradient(135deg, #06b6d4, #3b82f6);
-            color: white;
+            background: linear-gradient(135deg, var(--theme-yellow), #f39c12);
+            color: var(--primary-dark);
             padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .ai-chat-header button {
             background: none;
             border: none;
-            color: white;
+            color: var(--primary-dark);
             cursor: pointer;
             font-size: 1.2rem;
             display: flex;
@@ -747,6 +752,7 @@
 
         .chat-ai {
             background: var(--white);
+            color: var(--text-main);
             align-self: flex-start;
             border-bottom-left-radius: 0;
             border: 1px solid rgba(0,0,0,0.05);
@@ -754,8 +760,8 @@
         }
 
         .chat-user {
-            background: #3b82f6;
-            color: white;
+            background: var(--primary-dark);
+            color: #ffffff;
             align-self: flex-end;
             border-bottom-right-radius: 0;
             box-shadow: var(--shadow-sm);
@@ -779,8 +785,8 @@
         }
 
         .ai-chat-input button {
-            background: #3b82f6;
-            color: white;
+            background: var(--theme-yellow);
+            color: var(--primary-dark);
             border: none;
             width: 40px;
             height: 40px;
@@ -793,7 +799,7 @@
         }
 
         .ai-chat-input button:hover {
-            background: #06b6d4;
+            background: #f39c12;
         }
 
         .loading-dots {
@@ -863,7 +869,7 @@
                 top: 80px;
                 left: -100%;
                 flex-direction: column;
-                background: var(--white);
+                background: rgba(244, 208, 63, 0.98); /* Kuning sedikit transparan di menu mobile */
                 width: 100%;
                 text-align: center;
                 padding: 30px 0;
@@ -1137,7 +1143,7 @@
                 <div class="container fade-up">
                     <h2>Nilai Penting Geoheritage</h2>
                     <p>Gua Pandan bukan sekadar rongga di bawah tanah, melainkan monumen alamiah yang menyimpan data aktivitas vulkanisme basaltik purba di Lampung Timur. Pelestariannya sangat penting untuk fungsi edukasi, penelitian ilmu kebumian, serta perlindungan situs lorong lava (lava tube) yang amat langka di Sumatera.</p>
-                    <button onclick="openExploreView()" class="btn-primary" style="background-color: var(--white); color: var(--primary-dark);">
+                    <button onclick="openExploreView()" class="btn-primary" style="background-color: #ffffff; color: var(--primary-dark);">
                         Mulai Eksplorasi Sekarang
                     </button>
                 </div>
