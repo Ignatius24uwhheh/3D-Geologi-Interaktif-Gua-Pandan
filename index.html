@@ -137,8 +137,8 @@
         /* Hero Section (Parallax) */
         .hero {
             height: 100vh;
-            /* Menggunakan foto goa pandan finis.jpeg dengan overlay hitam tipis agar foto asli terlihat jelas */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('goa pandan finis.jpeg');
+            /* Menggunakan placeholder yang relevan karena file lokal tidak diunggah */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1599388334460-1e54a9c6c5da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed; /* Parallax Effect */
@@ -597,6 +597,7 @@
             border-radius: 15px;
             font-size: 0.9rem;
             line-height: 1.5;
+            white-space: pre-wrap; /* Menjaga line break dari AI */
         }
 
         .chat-ai {
@@ -770,10 +771,10 @@
                     <i class="ph ph-list"></i>
                 </div>
                 <ul class="nav-links" id="nav-links">
-                    <li><a href="#beranda" class="active">Beranda</a></li>
-                    <li><a href="#latar-belakang">Tentang Goa</a></li>
-                    <li><a href="#geologi">Geologi</a></li>
-                    <li><a href="#geoheritage">Geoheritage</a></li>
+                    <li><a href="#beranda" class="active" onclick="closeMobileMenu()">Beranda</a></li>
+                    <li><a href="#latar-belakang" onclick="closeMobileMenu()">Tentang Goa</a></li>
+                    <li><a href="#geologi" onclick="closeMobileMenu()">Geologi</a></li>
+                    <li><a href="#geoheritage" onclick="closeMobileMenu()">Geoheritage</a></li>
                     <li><a href="#" onclick="openExploreView()" class="btn-nav">Eksplorasi 360°</a></li>
                 </ul>
             </div>
@@ -782,8 +783,8 @@
         <!-- Hero Section -->
         <section id="beranda" class="hero">
             <div class="hero-content fade-up">
-                <h1>Eksplorasi Geoheritage Goa Pandan</h1>
-                <p>Pembelajaran geologi berbasis visual dan interaktif. Jelajahi keajaiban formasi karst dan pelajari sejarah bumi yang tersimpan di dalamnya.</p>
+                <h1>Eksplorasi 3D Gua Pandan Interaktif</h1>
+                <p>Bayangkan menjelajahi kedalaman Gua Pandan tanpa harus masuk langsung ke dalamnya. Melalui visualisasi 3D geologi interaktif, setiap lorong, struktur batuan, dan jejak proses alam tersaji secara nyata dan mudah dipahami. Proyek ini mengajak Anda merasakan pengalaman eksplorasi yang imersif-melihat, memutar, dan memahami bagaimana gua terbentuk dari waktu ke waktu. Mari nikmati perjalanan digital yang menghubungkan keindahan alam dengan ilmu geologi secara menarik dan interaktif.</p>
                 <button onclick="openExploreView()" class="btn-primary">
                     <i class="ph-bold ph-virtual-reality"></i> Lihat Eksplorasi 360°
                 </button>
@@ -799,8 +800,8 @@
             
             <div class="about-grid fade-up">
                 <div class="about-text">
-                    <p><strong>Goa Pandan</strong> merupakan sistem karst tropis yang menakjubkan, terbentuk melalui proses pelarutan batuan karbonat (batu gamping) yang berlangsung selama jutaan tahun. Interaksi konstan antara air tanah yang bersifat asam lemah dengan rekahan batuan menciptakan jaringan lorong bawah tanah yang kompleks.</p>
-                    <p>Sebagai laboratorium alam, goa ini merekam sejarah geologi dan perubahan iklim masa lampau. Struktur batuan dan bentukan speleothem di dalamnya menjadi bukti nyata dari kekuatan hidrologi dan waktu geologi yang bekerja secara berkesinambungan.</p>
+                    <p><strong>Gua Pandan</strong> yang berlokasi di <strong>Lampung Timur</strong> adalah salah satu fenomena geologi yang unik dan memukau. Berbeda dengan mayoritas sistem gua di Indonesia yang terbentuk dari pelarutan batu gamping (karst), Gua Pandan merupakan <strong>lorong lava (lava tube)</strong>. Gua ini terbentuk dari proses pendinginan aliran magma vulkanik pada masa lampau.</p>
+                    <p>Berdasarkan berbagai studi dan jurnal geologi terpublikasi, litologi utama penyusun dinding dan lorong Gua Pandan adalah <strong>basalt vesikular</strong>. Batuan magmatik ini terbentuk ketika lava basaltik dengan viskositas rendah mendingin dengan sangat cepat, lalu memerangkap gas-gas vulkanik sehingga menciptakan struktur batuan dengan banyak rongga udara (vesikel). Gua ini menjadi laboratorium alam yang luar biasa untuk mempelajari jejak vulkanisme purba.</p>
                 </div>
                 <div class="about-image">
                     <!-- Placeholder Image (Unsplash) -->
@@ -821,37 +822,37 @@
                     <!-- Card 1 -->
                     <div class="geo-card fade-up">
                         <div class="geo-icon">
-                            <i class="ph-duotone ph-drop"></i>
+                            <i class="ph-duotone ph-fire"></i>
                         </div>
-                        <h3>Sistem Karst Tropis</h3>
-                        <p>Kawasan dengan curah hujan tinggi dan vegetasi lebat mempercepat proses pelarutan kimiawi (karstifikasi). Hal ini menghasilkan ornamen goa yang berkembang sangat dinamis.</p>
+                        <h3>Lorong Lava (Lava Tube)</h3>
+                        <p>Gua ini terbentuk saat aliran lava bagian permukaan mendingin dan membeku menjadi kerak keras, sementara magma cair di bagian dalamnya tetap mengalir, meninggalkan terowongan vulkanik kosong.</p>
                     </div>
 
                     <!-- Card 2 -->
                     <div class="geo-card fade-up" style="transition-delay: 0.1s;">
                         <div class="geo-icon">
-                            <i class="ph-duotone ph-align-bottom"></i>
+                            <i class="ph-duotone ph-hexagon"></i>
                         </div>
-                        <h3>Stalaktit</h3>
-                        <p>Speleothem yang menggantung di atap goa. Terbentuk dari tetesan air tanah yang membawa mineral kalsium karbonat (CaCO3) yang mengendap perlahan.</p>
+                        <h3>Basalt Vesikular</h3>
+                        <p>Batuan penyusun utama gua adalah basalt vesikular. Tekstur batuan ini dipenuhi oleh rongga-rongga kecil (vesikel) yang terbentuk dari gelembung gas yang terperangkap saat pendinginan lava secara cepat.</p>
                     </div>
 
                     <!-- Card 3 -->
                     <div class="geo-card fade-up" style="transition-delay: 0.2s;">
                         <div class="geo-icon">
-                            <i class="ph-duotone ph-align-top"></i>
+                            <i class="ph-duotone ph-drop-half-bottom"></i>
                         </div>
-                        <h3>Stalagmit</h3>
-                        <p>Formasi batuan yang tumbuh dari dasar lantai goa, terbentuk dari tetesan air mineral yang jatuh dari stalaktit tepat di atasnya.</p>
+                        <h3>Lavacicle (Stalaktit Lava)</h3>
+                        <p>Pada atap gua dapat dijumpai bentukan menyerupai stalaktit yang disebut lavacicle. Ornamen ini terbentuk dari sisa-sisa tetesan lava panas yang membeku sesaat sebelum jatuh ke lantai gua.</p>
                     </div>
 
                     <!-- Card 4 -->
                     <div class="geo-card fade-up" style="transition-delay: 0.3s;">
                         <div class="geo-icon">
-                            <i class="ph-duotone ph-wall"></i>
+                            <i class="ph-duotone ph-mountains"></i>
                         </div>
-                        <h3>Struktur Batuan Karbonat</h3>
-                        <p>Batuan induk berupa batu gamping laut dangkal. Terdapat banyak rekahan (kekar) yang menjadi jalur utama infiltrasi air permukaan menjadi air tanah.</p>
+                        <h3>Jejak Vulkanisme Sukadana</h3>
+                        <p>Kehadiran Gua Pandan menjadi rekaman jejak letusan gunung api purba yang menghasilkan Formasi Basalt Sukadana, memberi petunjuk penting tentang sejarah vulkanik di wilayah Lampung Timur.</p>
                     </div>
                 </div>
             </div>
@@ -867,26 +868,26 @@
             <div class="timeline fade-up">
                 <div class="timeline-item left">
                     <div class="timeline-content">
-                        <h4>Miosen (Jutaan Tahun Lalu)</h4>
-                        <p>Pengendapan material karbonat di lingkungan laut dangkal membentuk lapisan batu gamping yang tebal.</p>
+                        <h4>Aktivitas Erupsi Magma</h4>
+                        <p>Magma basaltis berviskositas sangat rendah mengalir deras ke permukaan bumi, menyebar luas dan membentuk aliran lava pijar di wilayah Lampung Timur.</p>
                     </div>
                 </div>
                 <div class="timeline-item right">
                     <div class="timeline-content">
-                        <h4>Pengangkatan Tektonik</h4>
-                        <p>Gaya tektonik mengangkat dasar laut menjadi daratan. Proses ini menciptakan retakan dan rekahan pada batuan.</p>
+                        <h4>Pembentukan Kerak Permukaan</h4>
+                        <p>Bagian terluar aliran lava yang terekspos udara bersuhu lebih dingin mengalami pembekuan cepat, membentuk kerak keras (atap) yang mengisolasi panas lava di bawahnya.</p>
                     </div>
                 </div>
                 <div class="timeline-item left">
                     <div class="timeline-content">
-                        <h4>Fase Infiltrasi & Pelarutan</h4>
-                        <p>Air hujan bereaksi dengan CO2 membentuk asam karbonat lemah, meresap ke dalam retakan dan mulai melarutkan batuan.</p>
+                        <h4>Pengosongan Terowongan</h4>
+                        <p>Erupsi berhenti dan suplai magma dari pusat terputus. Sisa lava cair di dalam lorong terus mengalir akibat gaya gravitasi, mengosongkan isi ruang dan membentuk lava tube.</p>
                     </div>
                 </div>
                 <div class="timeline-item right">
                     <div class="timeline-content">
-                        <h4>Pembentukan Speleothem</h4>
-                        <p>Lorong goa meluas. Air tanah yang menetes mengendapkan mineral, secara perlahan membentuk stalaktit, stalagmit, dan flowstone.</p>
+                        <h4>Pendinginan & Pelapukan</h4>
+                        <p>Lava sepenuhnya membeku membentuk batuan basalt vesikular. Seiring perjalanan waktu, proses pelapukan dan keruntuhan atap menyingkap pintu masuk menuju lorong Gua Pandan.</p>
                     </div>
                 </div>
             </div>
@@ -896,7 +897,7 @@
         <section id="geoheritage" class="container">
             <div class="heritage-box fade-up">
                 <h2>Nilai Penting Geoheritage</h2>
-                <p>Goa Pandan bukan sekadar lubang di bawah tanah, melainkan arsip alamiah yang menyimpan data paleoklimatologi dan sejarah bumi. Pelestariannya sangat penting untuk fungsi edukasi, penelitian ilmu kebumian, serta perlindungan ekosistem endemis air tanah.</p>
+                <p>Gua Pandan bukan sekadar rongga di bawah tanah, melainkan monumen alamiah yang menyimpan data aktivitas vulkanisme basaltik purba di Lampung Timur. Pelestariannya sangat penting untuk fungsi edukasi, penelitian ilmu kebumian, serta perlindungan situs lorong lava (lava tube) yang amat langka di Sumatera.</p>
                 <button onclick="openExploreView()" class="btn-primary" style="background-color: var(--white); color: var(--primary-dark);">
                     Mulai Eksplorasi Sekarang
                 </button>
@@ -919,7 +920,6 @@
         </footer>
 
     </div>
-
 
     <!-- ================= HALAMAN 2: EKSPLORASI 360° (KUULA) ================= -->
     <div id="view-explore">
@@ -984,6 +984,9 @@
 
     <!-- ================= SCRIPT JAVASCRIPT ================= -->
     <script>
+        // --- KONFIGURASI API ---
+        const apiKey = ""; // API Key disuntikkan secara dinamis melalui environment.
+
         // --- LOGIKA SINGLE PAGE APPLICATION (SPA) ---
         const viewHome = document.getElementById('view-home');
         const viewExplore = document.getElementById('view-explore');
@@ -994,161 +997,177 @@
             // Sembunyikan Home, Tampilkan Explore
             viewHome.style.display = 'none';
             viewExplore.style.display = 'block';
-            // Scroll ke paling atas agar iframe tampil penuh dari awal
             window.scrollTo(0, 0);
-            
-            // Tutup mobile menu jika sedang terbuka
-            navLinksList.classList.remove('active');
+            closeMobileMenu();
         }
 
         function closeExploreView() {
             // Sembunyikan Explore, Tampilkan Home
             viewExplore.style.display = 'none';
             viewHome.style.display = 'block';
+            window.scrollTo(0, 0);
         }
 
-
-        // --- LOGIKA MOBILE MENU (HAMBURGER) ---
+        // --- LOGIKA UI & NAVIGASI ---
+        
+        // Toggle Menu Mobile
         mobileMenuBtn.addEventListener('click', () => {
             navLinksList.classList.toggle('active');
         });
 
-        // Tutup menu saat link diklik (di tampilan mobile)
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                if(window.innerWidth <= 768) {
-                    navLinksList.classList.remove('active');
-                }
-            });
-        });
+        function closeMobileMenu() {
+            if(navLinksList.classList.contains('active')) {
+                navLinksList.classList.remove('active');
+            }
+        }
 
-
-        // --- EFEK SCROLL PADA NAVBAR ---
-        const navbar = document.getElementById('navbar');
+        // Animasi Navbar saat Scroll
         window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
             if (window.scrollY > 50) {
-                navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
-                navbar.style.padding = '0';
+                nav.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
             } else {
-                navbar.style.boxShadow = '0 4px 6px rgba(0,0,0,0.05)';
+                nav.style.boxShadow = 'var(--shadow-sm)';
             }
         });
 
-
-        // --- ANIMASI FADE-IN SAAT DI SCROLL (INTERSECTION OBSERVER) ---
+        // Intersection Observer untuk Animasi Fade-Up pada elemen
         const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.15
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
         };
 
-        const observer = new IntersectionObserver((entries, observer) => {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); // Animasi hanya berjalan 1x
+                    observer.unobserve(entry.target); // Animasi hanya berjalan 1 kali
                 }
             });
         }, observerOptions);
 
-        // Amati semua elemen yang memiliki class fade-up
+        // Jalankan observer pada semua elemen beralias .fade-up
         document.querySelectorAll('.fade-up').forEach(el => {
             observer.observe(el);
         });
 
-        // --- GEMINI API INTEGRATION (AHLI GEOLOGI AI) ---
-        const apiKey = ""; // API Key disuntikkan secara dinamis
-        const chatModal = document.getElementById('aiChatModal');
+
+        // --- LOGIKA AI CHATBOT (GEMINI API) ---
+        const aiChatModal = document.getElementById('aiChatModal');
         const chatBody = document.getElementById('chatBody');
         const chatInput = document.getElementById('chatInput');
 
+        // Buka/Tutup Modal Chat
         function toggleAIChat() {
-            if (chatModal.style.display === 'flex') {
-                chatModal.style.display = 'none';
+            if (aiChatModal.style.display === 'flex') {
+                aiChatModal.style.display = 'none';
             } else {
-                chatModal.style.display = 'flex';
+                aiChatModal.style.display = 'flex';
                 chatInput.focus();
             }
         }
 
+        // Event Listener untuk Enter di input
         function handleChatKeyPress(event) {
             if (event.key === 'Enter') {
                 sendChatMessage();
             }
         }
 
-        function appendMessage(text, sender) {
-            const msgDiv = document.createElement('div');
-            msgDiv.className = `chat-bubble ${sender === 'user' ? 'chat-user' : 'chat-ai'}`;
-            msgDiv.innerHTML = text;
-            chatBody.appendChild(msgDiv);
-            chatBody.scrollTop = chatBody.scrollHeight;
-            return msgDiv;
-        }
+        // Fungsi Utama Pengiriman Pesan
+        async function sendChatMessage() {
+            const message = chatInput.value.trim();
+            if (!message) return;
 
-        const wait = (ms) => new Promise(res => setTimeout(res, ms));
+            // 1. Tambahkan Pesan User ke UI
+            addMessageToChat(message, 'user');
+            chatInput.value = '';
 
-        // Exponential backoff retry logic untuk keandalan API
-        async function fetchWithRetry(url, options, retries = 5) {
-            const delays = [1000, 2000, 4000, 8000, 16000];
-            for (let i = 0; i < retries; i++) {
-                try {
-                    const response = await fetch(url, options);
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return await response.json();
-                } catch (error) {
-                    if (i === retries - 1) throw error;
-                    await wait(delays[i]);
-                }
+            // 2. Tambahkan Indikator Loading dari AI
+            const loadingId = addLoadingBubble();
+
+            // 3. Panggil API Gemini dengan Backoff
+            try {
+                const responseText = await fetchGeminiWithBackoff(message);
+                removeElement(loadingId);
+                addMessageToChat(responseText, 'ai');
+            } catch (error) {
+                console.error("Gemini API Error:", error);
+                removeElement(loadingId);
+                addMessageToChat('Maaf, saya mengalami gangguan koneksi ke server. Silakan coba beberapa saat lagi.', 'ai');
             }
         }
 
-        async function sendChatMessage() {
-            const text = chatInput.value.trim();
-            if (!text) return;
+        // Menambahkan elemen pesan ke dalam UI Chat
+        function addMessageToChat(text, sender) {
+            const div = document.createElement('div');
+            div.className = `chat-bubble chat-${sender}`;
+            div.textContent = text; // Gunakan textContent agar aman dari XSS
+            chatBody.appendChild(div);
+            // Scroll ke bawah secara otomatis
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
 
-            // 1. Tampilkan pesan user
-            appendMessage(text, 'user');
-            chatInput.value = '';
+        // Menambahkan elemen animasi loading
+        function addLoadingBubble() {
+            const id = 'loading-' + Date.now();
+            const div = document.createElement('div');
+            div.id = id;
+            div.className = `chat-bubble chat-ai`;
+            div.innerHTML = `<div class="loading-dots"><span></span><span></span><span></span></div>`;
+            chatBody.appendChild(div);
+            chatBody.scrollTop = chatBody.scrollHeight;
+            return id;
+        }
 
-            // 2. Tampilkan indikator loading AI
-            const loadingMsg = appendMessage('<div class="loading-dots"><span></span><span></span><span></span></div>', 'ai');
+        // Menghapus elemen (dipakai untuk menghilangkan loading)
+        function removeElement(id) {
+            const el = document.getElementById(id);
+            if (el) el.remove();
+        }
 
-            // 3. Konfigurasi Prompt Sistem agar AI bertindak spesifik
-            const systemPrompt = "Anda adalah asisten AI Ahli Geologi untuk website edukasi Geoheritage Goa Pandan. Jawablah pertanyaan seputar geologi, karst, goa, batu gamping, dan alam dengan bahasa Indonesia yang ramah, edukatif, dan menarik. Anda BUKAN AI umum, melainkan pakar bumi. Berikan jawaban yang ringkas (maksimal 2 paragraf pendek) dan mudah dipahami oleh pelajar atau masyarakat umum. Gunakan emoji yang relevan.";
-            
+        // Fungsi Fetch API menggunakan Exponential Backoff
+        async function fetchGeminiWithBackoff(prompt, maxRetries = 5) {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            const systemPrompt = "Anda adalah Ahli Geologi AI yang dipekerjakan pada platform Geoheritage Gua Pandan. Jawablah pertanyaan seputar lorong lava (lava tube), formasi basalt vesikular, vulkanisme di Lampung Timur, dan ilmu kebumian lainnya. Gunakan bahasa Indonesia yang ramah, edukatif, dan mudah dipahami masyarakat umum. Batasi jawaban agar ringkas namun berbobot.";
+
             const payload = {
-                contents: [{ parts: [{ text: text }] }],
+                contents: [{ parts: [{ text: prompt }] }],
                 systemInstruction: { parts: [{ text: systemPrompt }] }
             };
 
-            try {
-                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-                const result = await fetchWithRetry(url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
+            const delays = [1000, 2000, 4000, 8000, 16000];
 
-                const aiResponse = result.candidates?.[0]?.content?.parts?.[0]?.text || "Maaf, data geologi saya sedang memuat ulang. Coba tanyakan lagi.";
-                
-                // Konversi markdown sederhana (**bold** dan *italic* dan \n) menjadi HTML
-                const formattedResponse = aiResponse
-                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                    .replace(/\*(.*?)\*/g, '<em>$1</em>')
-                    .replace(/\n/g, '<br>');
-                
-                chatBody.removeChild(loadingMsg);
-                appendMessage(formattedResponse, 'ai');
-            } catch (error) {
-                console.error("Error calling Gemini API:", error);
-                chatBody.removeChild(loadingMsg);
-                appendMessage("<em>Koneksi satelit terputus. Silakan coba beberapa saat lagi.</em>", 'ai');
+            for (let i = 0; i <= maxRetries; i++) {
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP Error: ${response.status}`);
+                    }
+
+                    const data = await response.json();
+                    
+                    // Ekstraksi jawaban teks
+                    if (data.candidates && data.candidates[0].content && data.candidates[0].content.parts) {
+                        return data.candidates[0].content.parts[0].text;
+                    } else {
+                        return "Maaf, respon tidak dapat diproses.";
+                    }
+
+                } catch (error) {
+                    if (i === maxRetries) {
+                        throw error; // Lempar error jika semua upaya telah gagal
+                    }
+                    // Tunggu sebelum mencoba lagi (Exponential Backoff)
+                    await new Promise(resolve => setTimeout(resolve, delays[i]));
+                }
             }
         }
-
     </script>
 </body>
 </html>
