@@ -837,7 +837,7 @@
         .toggle-panel:hover {
             color: var(--white);
         }
-
+        
         /* === RESPONSIVE DESIGN === */
         @media screen and (max-width: 992px) {
             .section-block {
@@ -951,6 +951,167 @@
                     <li><a href="#profil" onclick="closeMobileMenu()">Profil</a></li>
                     <li><a href="#" onclick="openExploreView()" class="btn-nav">Eksplorasi 360°</a></li>
                 </ul>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="beranda" class="hero">
+            <div class="hero-content fade-up">
+                <h1>Eksplorasi 3D Gua Pandan</h1>
+                <p><strong>Jelajahi misteri lorong lava Gua Pandan</strong> tanpa harus beranjak dari tempat Anda. Lewat visualisasi 3D interaktif, singkap rahasia batuan vulkanik purba dan rasakan pengalaman imersif keajaiban geologi Lampung Timur.</p>
+                <button onclick="openExploreView()" class="btn-primary">
+                    <i class="ph-bold ph-virtual-reality"></i> Mulai Eksplorasi
+                </button>
+            </div>
+        </section>
+
+        <!-- Latar Belakang Section -->
+        <section id="latar-belakang">
+            <div class="section-block">
+                <div class="container fade-up">
+                    <div class="section-header">
+                        <h2>Latar Belakang Geologi</h2>
+                        <p>Memahami proses alamiah yang membentuk mahakarya bawah tanah.</p>
+                    </div>
+                    
+                    <div class="about-grid">
+                        <div class="about-text">
+                            <p><strong>Gua Pandan</strong> yang berlokasi di <strong>Lampung Timur</strong> adalah salah satu fenomena geologi yang eksklusif dan memukau. Berbeda dengan mayoritas sistem gua di Indonesia yang terbentuk dari pelarutan batu gamping (karst), Gua Pandan merupakan <strong>lorong lava (lava tube)</strong>. Gua ini terbentuk dari proses pendinginan aliran magma vulkanik pada masa lampau.</p>
+                            <p>Berdasarkan berbagai studi geologi, litologi utama penyusun dinding dan lorong Gua Pandan adalah <strong>basalt vesikular</strong>. Batuan magmatik ini terbentuk ketika lava basaltik dengan viskositas rendah mendingin dengan sangat cepat, lalu memerangkap gas-gas vulkanik sehingga menciptakan struktur batuan berongga (vesikel). Gua ini menjadi laboratorium alam yang luar biasa untuk mempelajari jejak vulkanisme purba.</p>
+                        </div>
+                        <div class="about-image">
+                            <img src="foto-gua-pandan.jpg" alt="Sistem Lorong Lava Gua Pandan">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Penjelasan Geologi Detail Section -->
+        <section id="geologi">
+            <div class="section-block alt-bg">
+                <div class="container fade-up">
+                    <div class="section-header">
+                        <h2>Fitur Geologi Utama</h2>
+                        <p>Anatomi gua dan formasi batuan penyusun ekosistem vulkanik eksotis ini.</p>
+                    </div>
+
+                    <div class="geo-grid">
+                        <!-- Card 1 -->
+                        <div class="geo-card">
+                            <div class="geo-icon">
+                                <i class="ph-duotone ph-fire"></i>
+                            </div>
+                            <h3>Lorong Lava (Lava Tube)</h3>
+                            <p>Terbentuk saat aliran lava permukaan membeku menjadi kerak keras, sementara magma cair di dalamnya tetap mengalir, meninggalkan terowongan vulkanik kosong.</p>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="geo-card">
+                            <div class="geo-icon">
+                                <i class="ph-duotone ph-hexagon"></i>
+                            </div>
+                            <h3>Basalt Vesikular</h3>
+                            <p>Batuan penyusun utama bertekstur unik, dipenuhi oleh rongga-rongga kecil akibat gelembung gas yang terperangkap saat pendinginan lava secara drastis.</p>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="geo-card">
+                            <div class="geo-icon">
+                                <i class="ph-duotone ph-drop-half-bottom"></i>
+                            </div>
+                            <h3>Lavacicle (Stalaktit Lava)</h3>
+                            <p>Bentukan langka menyerupai stalaktit yang tercipta dari sisa tetesan lava panas leleh yang membeku seketika sesaat sebelum jatuh ke lantai gua.</p>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="geo-card">
+                            <div class="geo-icon">
+                                <i class="ph-duotone ph-mountains"></i>
+                            </div>
+                            <h3>Jejak Sukadana</h3>
+                            <p>Rekaman jejak letusan gunung api purba yang menghasilkan Formasi Basalt Sukadana, menjadi petunjuk penting sejarah vulkanik wilayah Lampung Timur.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Geologi -->
+        <section id="timeline">
+            <div class="section-block">
+                <div class="container fade-up">
+                    <div class="section-header">
+                        <h2>Evolusi Geologis</h2>
+                        <p>Perjalanan waktu pembentukan Gua Pandan dari masa purba.</p>
+                    </div>
+
+                    <div class="timeline">
+                        <div class="timeline-item left">
+                            <div class="timeline-content">
+                                <h4>Erupsi Basaltik</h4>
+                                <p>Magma basaltis berviskositas sangat rendah tumpah ke permukaan bumi, menyebar luas membentuk aliran lava pijar di kawasan Lampung Timur purba.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item right">
+                            <div class="timeline-content">
+                                <h4>Kristalisasi Kerak</h4>
+                                <p>Bagian luar aliran lava yang terpapar suhu udara mendingin dengan drastis, membentuk kerak isolator keras yang menjebak panas aliran lava di bawahnya.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item left">
+                            <div class="timeline-content">
+                                <h4>Pengosongan Lorong</h4>
+                                <p>Suplai magma berhenti, sisa lava cair di perut terowongan meluncur habis akibat gravitasi, menyisakan ruang hampa megah yang kini disebut lava tube.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item right">
+                            <div class="timeline-content">
+                                <h4>Penyingkapan</h4>
+                                <p>Pendinginan absolut dan proses pelapukan alami berabad-abad meruntuhkan sebagian atap rapuh (sinkhole), menyingkap portal rahasia menuju Gua Pandan.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galeri Visual -->
+        <section id="galeri">
+            <div class="section-block alt-bg">
+                <div class="container fade-up">
+                    <div class="section-header">
+                        <h2>Galeri Visual</h2>
+                        <p>Jelajahi keindahan arsiktektur batuan vulkanik mahakarya alam.</p>
+                    </div>
+                    
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1549429188-69335d54cd51?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Lorong Lava">
+                            <div class="gallery-overlay">
+                                <h4>Lorong Utama</h4>
+                                <p style="font-size: 0.85rem; opacity: 0.8;">Arsitektur tabung sisa aliran lava pijar.</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1582260655455-ceb8a24564c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Struktur Batuan">
+                            <div class="gallery-overlay">
+                                <h4>Tekstur Vesikular</h4>
+                                <p style="font-size: 0.85rem; opacity: 0.8;">Jejak gelembung gas vulkanik purba.</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1498429089284-41f8cf3ffd39?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mulut Gua">
+                            <div class="gallery-overlay">
+                                <h4>Sinkhole Entrance</h4>
+                                <p style="font-size: 0.85rem; opacity: 0.8;">Titik akses penyingkap sejarah geologi.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Lokasi & Akses -->
         <section id="lokasi">
             <div class="section-block">
@@ -989,7 +1150,7 @@
             </div>
         </section>
 
-        <!-- Profil Pengembang (BAGIAN BARU) -->
+        <!-- Profil Pengembang -->
         <section id="profil">
             <div class="section-block alt-bg">
                 <div class="container fade-up">
@@ -999,11 +1160,10 @@
                     </div>
 
                     <div class="profile-card">
-                        <!-- Ganti nilai src di bawah ini dengan nama file foto Anda, contoh: foto-profil.jpg -->
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Foto Profil" class="profile-img">
+                        <!-- Ganti nilai src di bawah ini dengan nama file foto Anda -->
+                        <img src="Foto-Creator.jpg" alt="Foto Profil" class="profile-img">
                         
                         <div class="profile-info">
-                            <!-- Ubah Teks Di Bawah Ini Sesuai Biodata Anda -->
                             <h3>Ignatius Canapolo Sinaga</h3>
                             <h4>Project Creator & Geologist</h4>
                             <p>Seorang geologist yang antusias dalam eksplorasi geologi, mineral, minyak dan gas bumi, serta geowisata. Project ini didedikasikan untuk memajukan sarana edukasi interaktif tentang fenomena lorong lava di wilayah Nusantara.</p>
