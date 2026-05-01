@@ -85,6 +85,29 @@
             height: 85px;
         }
 
+        /* Pembungkus Kumpulan Logo */
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Logo Kampus & Prodi */
+        .partner-logos {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-right: 15px;
+            border-right: 2px solid rgba(212, 175, 55, 0.4);
+        }
+
+        .partner-logos img {
+            height: 45px; /* Sesuaikan ukuran logo di sini */
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Teks Logo GeoPandan */
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
@@ -92,7 +115,7 @@
             color: var(--theme-dark);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             letter-spacing: 0.5px;
         }
 
@@ -276,7 +299,7 @@
 
         .about-image {
             position: relative;
-            border-radius: 8px; /* Lebih elegan tanpa border melengkung ekstrim */
+            border-radius: 8px;
             overflow: hidden;
             box-shadow: var(--shadow-lg);
             height: 450px;
@@ -872,6 +895,20 @@
             .location-info {
                 padding: 40px 30px;
             }
+            .brand-container {
+                gap: 10px;
+            }
+            .partner-logos {
+                padding-right: 10px;
+                border-right-width: 1px;
+                gap: 8px;
+            }
+            .partner-logos img {
+                height: 35px;
+            }
+            .logo {
+                font-size: 1.3rem;
+            }
         }
 
         @media screen and (max-width: 768px) {
@@ -907,6 +944,12 @@
                 left: 20px;
                 width: auto;
             }
+            .partner-logos img {
+                height: 28px; /* Lebih kecil agar muat di mobile */
+            }
+            .logo {
+                font-size: 1.1rem;
+            }
         }
 
         /* === ANIMASI & EFEK === */
@@ -935,9 +978,15 @@
         <!-- Navbar -->
         <nav id="navbar">
             <div class="container nav-container">
-                <div class="logo">
-                    <i class="ph-fill ph-mountains"></i>
-                    GeoPandan
+                <div class="brand-container">
+                    <div class="partner-logos">
+                        <img src="foto-itera.png" alt="Logo ITERA">
+                        <img src="foto-gl.png" alt="Logo Teknik Geologi">
+                    </div>
+                    <div class="logo">
+                        <i class="ph-fill ph-mountains"></i>
+                        GeoPandan
+                    </div>
                 </div>
                 <div class="menu-toggle" id="mobile-menu">
                     <i class="ph ph-list"></i>
