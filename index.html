@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geoheritage Goa Pandan | Edukasi Geologi</title>
+    <title>Geoheritage Gua Pandan | Edukasi Geologi</title>
     
     <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -137,7 +137,11 @@
         /* Hero Section (Parallax) */
         .hero {
             height: 100vh;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1599388334460-1e54a9c6c5da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            /* ========================================== */
+            /* MASUKKAN NAMA FILE FOTO BACKGROUND ANDA DI SINI */
+            /* Pastikan file foto-bg berada di folder yang sama dengan index.html */
+            /* ========================================== */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('foto-bg.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed; /* Parallax Effect */
@@ -782,7 +786,7 @@
                 </div>
                 <ul class="nav-links" id="nav-links">
                     <li><a href="#beranda" class="active" onclick="closeMobileMenu()">Beranda</a></li>
-                    <li><a href="#latar-belakang" onclick="closeMobileMenu()">Tentang Goa</a></li>
+                    <li><a href="#latar-belakang" onclick="closeMobileMenu()">Tentang Gua</a></li>
                     <li><a href="#geologi" onclick="closeMobileMenu()">Geologi</a></li>
                     <li><a href="#geoheritage" onclick="closeMobileMenu()">Geoheritage</a></li>
                     <li><a href="#" onclick="openExploreView()" class="btn-nav">Eksplorasi 360°</a></li>
@@ -823,8 +827,8 @@
         <section id="geologi" class="bg-light">
             <div class="container">
                 <div class="section-header fade-up">
-                    <h2>Fitur Geologi Goa Pandan</h2>
-                    <p>Anatomi goa dan formasi batuan yang menyusun ekosistem vulkanik ini.</p>
+                    <h2>Fitur Geologi Gua Pandan</h2>
+                    <p>Anatomi gua dan formasi batuan yang menyusun ekosistem vulkanik ini.</p>
                 </div>
 
                 <div class="geo-grid">
@@ -871,7 +875,7 @@
         <section class="container">
             <div class="section-header fade-up">
                 <h2>Timeline Pembentukan</h2>
-                <p>Bagaimana Goa Pandan berevolusi melintasi waktu geologi.</p>
+                <p>Bagaimana Gua Pandan berevolusi melintasi waktu geologi.</p>
             </div>
 
             <div class="timeline fade-up">
@@ -923,7 +927,7 @@
                     <p>Platform Edukasi Geologi Interaktif Berbasis 360° Virtual Reality.</p>
                 </div>
                 <div class="footer-bottom">
-                    <p>&copy; 2026 Project Geoheritage Goa Pandan. Desain Edukasi Geologi.</p>
+                    <p>&copy; 2026 Project Geoheritage Gua Pandan. Desain Edukasi Geologi.</p>
                 </div>
             </div>
         </footer>
@@ -1054,7 +1058,7 @@
         
         // Aturan ketat dari sistem: API Key harus kosong
         const apiKey = ""; 
-        const systemPrompt = "Anda adalah Ahli Geologi virtual yang bertugas di platform Geoheritage Goa Pandan, Lampung Timur. Goa Pandan adalah fenomena geologi lorong lava (lava tube) yang terbuat dari basalt vesikular. Berikan jawaban yang ramah, informatif, singkat, dan mudah dimengerti terkait geologi, vulkanisme, atau Gua Pandan.";
+        const systemPrompt = "Anda adalah Ahli Geologi virtual yang bertugas di platform Geoheritage Gua Pandan, Lampung Timur. Gua Pandan adalah fenomena geologi lorong lava (lava tube) yang terbuat dari basalt vesikular. Berikan jawaban yang ramah, informatif, singkat, dan mudah dimengerti terkait geologi, vulkanisme, atau Gua Pandan.";
 
         const chatModal = document.getElementById('aiChatModal');
         const chatBody = document.getElementById('chatBody');
