@@ -845,58 +845,6 @@ const CSS_STYLES = `
   
   .instruksi-box i { color: var(--theme-gold); }
 
-  /* Tombol Fullscreen Global */
-  .btn-fullscreen-global {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 50px;
-      height: 50px;
-      background-color: var(--theme-gold);
-      color: var(--theme-dark);
-      border: none;
-      border-radius: 50%;
-      font-size: 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: var(--shadow-lg);
-      z-index: 999;
-      transition: var(--transition);
-  }
-
-  .btn-fullscreen-global:hover {
-      transform: scale(1.1);
-      background-color: var(--theme-dark);
-      color: var(--theme-gold);
-  }
-
-  /* Notifikasi Toast Error */
-  .toast-message {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: var(--theme-darker);
-      color: var(--theme-gold);
-      padding: 12px 24px;
-      border-radius: 8px;
-      z-index: 99999;
-      font-size: 0.9rem;
-      box-shadow: var(--shadow-lg);
-      border: 1px solid var(--theme-gold);
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease-in-out;
-  }
-  
-  .toast-message.show {
-      opacity: 1;
-      visibility: visible;
-      bottom: 40px;
-  }
-
   /* === RESPONSIVE DESIGN === */
   @media screen and (max-width: 992px) {
       .section-block { padding: 70px 0; }
@@ -960,9 +908,7 @@ export default function App() {
     const [showSplash, setShowSplash] = useState(true);
     const [mobileMenuActive, setMobileMenuActive] = useState(false);
     const [activeView, setActiveView] = useState('home'); 
-    const [isFullscreen, setIsFullscreen] = useState(false);
     const [activeNav, setActiveNav] = useState('beranda');
-    const [toastMessage, setToastMessage] = useState('');
 
     // Menginjeksikan Script Ikon
     useEffect(() => {
@@ -994,25 +940,6 @@ export default function App() {
             document.body.classList.remove('no-scroll');
         }
     }, [showSplash]);
-
-    // Deteksi Fullscreen
-    useEffect(() => {
-        const handleFullscreenChange = () => {
-            setIsFullscreen(!!(document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement));
-        };
-
-        document.addEventListener('fullscreenchange', handleFullscreenChange);
-        document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
-        document.addEventListener('mozfullscreenchange', handleFullscreenChange);
-        document.addEventListener('MSFullscreenChange', handleFullscreenChange);
-
-        return () => {
-            document.removeEventListener('fullscreenchange', handleFullscreenChange);
-            document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);
-            document.removeEventListener('mozfullscreenchange', handleFullscreenChange);
-            document.removeEventListener('MSFullscreenChange', handleFullscreenChange);
-        };
-    }, []);
 
     // Observer untuk Animasi
     useEffect(() => {
@@ -1050,80 +977,15 @@ export default function App() {
         };
     }, [activeView]);
 
-    // Fungsi untuk memunculkan notifikasi Toast
-    const showToast = (msg) => {
-        setToastMessage(msg);
-        setTimeout(() => setToastMessage(''), 4000);
-    };
-
-    // Fungsi Pembantu Tangani Error Fullscreen (Sangat Aman)
-    const handleFullscreenError = (err) => {
-        console.warn("Fullscreen diblokir oleh lingkungan/browser:", err);
-        showToast("Fitur Layar Penuh dinonaktifkan sementara di pratinjau ini.");
-    };
-
-    // Fungsi Toggle Layar Penuh
-    const toggleFullScreen = () => {
-        try {
-            const elem = document.documentElement;
-            if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.mozFullScreenElement && !document.msFullscreenElement) {
-                let promise;
-                if (elem.requestFullscreen) promise = elem.requestFullscreen();
-                else if (elem.webkitRequestFullscreen) promise = elem.webkitRequestFullscreen();
-                else if (elem.mozRequestFullScreen) promise = elem.mozRequestFullScreen();
-                else if (elem.msRequestFullscreen) promise = elem.msRequestFullscreen();
-                
-                if (promise !== undefined && promise.catch) {
-                    promise.catch(handleFullscreenError);
-                }
-            } else {
-                let promise;
-                if (document.exitFullscreen) promise = document.exitFullscreen();
-                else if (document.webkitExitFullscreen) promise = document.webkitExitFullscreen();
-                else if (document.mozCancelFullScreen) promise = document.mozCancelFullScreen();
-                else if (document.msExitFullscreen) promise = document.msExitFullscreen();
-
-                if (promise !== undefined && promise.catch) {
-                    promise.catch(e => console.warn(e));
-                }
-            }
-        } catch (error) {
-            handleFullscreenError(error);
-        }
-    };
-
     // Fungsi Navigasi Eksplorasi
     const openExploreView = () => {
         setActiveView('explore');
         setMobileMenuActive(false);
         window.scrollTo(0, 0);
-        
-        try {
-            const elem = document.documentElement;
-            if (!document.fullscreenElement && elem.requestFullscreen) {
-                const promise = elem.requestFullscreen();
-                if (promise !== undefined && promise.catch) {
-                    promise.catch(e => console.log("Otomatis fullscreen ditolak"));
-                }
-            }
-        } catch (error) {
-            console.log("Fullscreen API error:", error);
-        }
     };
 
     const closeExploreView = () => {
         setActiveView('home');
-        
-        try {
-            if (document.fullscreenElement && document.exitFullscreen) {
-                const promise = document.exitFullscreen();
-                if (promise !== undefined && promise.catch) {
-                    promise.catch(e => console.log("Gagal keluar fullscreen"));
-                }
-            }
-        } catch (error) {
-            console.log("Exit fullscreen error:", error);
-        }
     };
 
     return (
@@ -1479,11 +1341,6 @@ export default function App() {
                     </div>
                 </footer>
 
-                {/* Tombol Fullscreen Global */}
-                <button id="fullscreen-toggle" className="btn-fullscreen-global" onClick={toggleFullScreen} title="Tampilan Layar Penuh">
-                    <i className={`ph-bold ${isFullscreen ? 'ph-corners-in' : 'ph-corners-out'}`} id="fs-icon"></i>
-                </button>
-
             </div> {/* Akhir view-home */}
 
             {/* ================= HALAMAN 2: EXPLORE 360 (VIRTUAL REALITY) ================= */}
@@ -1522,11 +1379,6 @@ export default function App() {
                     </div>
                 </div>
             </div> {/* Akhir view-explore */}
-            
-            {/* ================= NOTIFIKASI ERROR (TOAST) ================= */}
-            <div className={`toast-message ${toastMessage ? 'show' : ''}`}>
-                {toastMessage}
-            </div>
             
         </div>
     );
