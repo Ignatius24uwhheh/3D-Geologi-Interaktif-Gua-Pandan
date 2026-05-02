@@ -232,6 +232,7 @@
         /* Global Sections */
         section {
             padding: 0;
+            scroll-margin-top: 85px; /* Memberi jarak scroll agar tidak tertutup navbar */
         }
 
         .section-block {
@@ -910,6 +911,7 @@
                     <i class="ph ph-list"></i>
                 </div>
                 <ul class="nav-links" id="nav-links">
+                    <!-- Kembali menggunakan atribut href dengan ID elemen (#) -->
                     <li><a href="#beranda" class="active" onclick="closeMobileMenu()">Beranda</a></li>
                     <li><a href="#latar-belakang" onclick="closeMobileMenu()">Tentang</a></li>
                     <li><a href="#geologi" onclick="closeMobileMenu()">Geologi</a></li>
@@ -933,147 +935,141 @@
         </section>
 
         <!-- Latar Belakang Section -->
-        <section id="latar-belakang">
-            <div class="section-block">
-                <div class="container fade-up">
-                    <div class="section-header">
+        <section id="latar-belakang" class="section-block">
+            <div class="container fade-up">
+                <div class="section-header">
                         <h2>Latar Belakang Geologi</h2>
                         <p>Memahami proses alamiah yang membentuk mahakarya bawah tanah.</p>
-                    </div>
+                </div>
                     
-                    <div class="about-grid">
-                        <div class="about-text">
-                            <p><strong>Gua Pandan</strong> yang berlokasi di <strong>Lampung Timur</strong> adalah salah satu fenomena geologi yang eksklusif dan memukau. Berbeda dengan mayoritas sistem gua di Indonesia yang terbentuk dari pelarutan batu gamping (karst), Gua Pandan merupakan <strong>lorong lava (lava tube)</strong>. Gua ini terbentuk dari proses pendinginan aliran magma vulkanik pada masa lampau.</p>
-                            <p>Berdasarkan berbagai studi geologi, litologi utama penyusun dinding dan lorong Gua Pandan adalah <strong>basalt vesikular</strong>. Batuan magmatik ini terbentuk ketika lava basaltik dengan viskositas rendah mendingin dengan sangat cepat, lalu memerangkap gas-gas vulkanik sehingga menciptakan struktur batuan berongga (vesikel). Gua ini menjadi laboratorium alam yang luar biasa untuk mempelajari jejak vulkanisme purba.</p>
-                        </div>
-                        <div class="about-image">
-                            <!-- Image dengan Lazy Loading -->
-                            <img src="./foto-gua-pandan.jpg" loading="lazy" decoding="async" onerror="this.src='https://images.unsplash.com/photo-1599839619722-39751411ea63?q=80&w=2070&auto=format&fit=crop'" alt="Sistem Lorong Lava Gua Pandan">
-                        </div>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p><strong>Gua Pandan</strong> yang berlokasi di <strong>Lampung Timur</strong> adalah salah satu fenomena geologi yang eksklusif dan memukau. Berbeda dengan mayoritas sistem gua di Indonesia yang terbentuk dari pelarutan batu gamping (karst), Gua Pandan merupakan <strong>lorong lava (lava tube)</strong>. Gua ini terbentuk dari proses pendinginan aliran magma vulkanik pada masa lampau.</p>
+                        <p>Berdasarkan berbagai studi geologi, litologi utama penyusun dinding dan lorong Gua Pandan adalah <strong>basalt vesikular</strong>. Batuan magmatik ini terbentuk ketika lava basaltik dengan viskositas rendah mendingin dengan sangat cepat, lalu memerangkap gas-gas vulkanik sehingga menciptakan struktur batuan berongga (vesikel). Gua ini menjadi laboratorium alam yang luar biasa untuk mempelajari jejak vulkanisme purba.</p>
+                    </div>
+                    <div class="about-image">
+                        <!-- Image dengan Lazy Loading -->
+                        <img src="./foto-gua-pandan.jpg" loading="lazy" decoding="async" onerror="this.src='https://images.unsplash.com/photo-1599839619722-39751411ea63?q=80&w=2070&auto=format&fit=crop'" alt="Sistem Lorong Lava Gua Pandan">
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Penjelasan Geologi Detail Section -->
-        <section id="geologi">
-            <div class="section-block alt-bg">
-                <div class="container fade-up">
-                    <div class="section-header">
-                        <h2>Fitur Geologi Utama</h2>
-                        <p>Anatomi gua dan formasi batuan penyusun ekosistem vulkanik eksotis ini.</p>
-                    </div>
-
-                    <div class="geo-grid">
-                        <!-- Card 1 -->
-                        <div class="geo-card">
-                            <div class="geo-icon">
-                                <i class="ph-duotone ph-fire"></i>
-                            </div>
-                            <h3>Lorong Lava</h3>
-                            <p>Terbentuk saat aliran lava permukaan membeku menjadi kerak keras, sementara magma cair di dalamnya tetap mengalir meninggalkan rongga terowongan.</p>
-                        </div>
-
-                        <!-- Card 2 -->
-                        <div class="geo-card">
-                            <div class="geo-icon">
-                                <i class="ph-duotone ph-hexagon"></i>
-                            </div>
-                            <h3>Basalt Vesikular</h3>
-                            <p>Batuan penyusun utama bertekstur unik, dipenuhi oleh rongga-rongga kecil akibat gelembung gas yang terperangkap saat pendinginan drastis.</p>
-                        </div>
-
-                        <!-- Card 3 -->
-                        <div class="geo-card">
-                            <div class="geo-icon">
-                                <i class="ph-duotone ph-drop-half-bottom"></i>
-                            </div>
-                            <h3>Lavacicle</h3>
-                            <p>Bentukan langka menyerupai stalaktit yang terbentuk dari sisa lelehan lava yang menetes perlahan dari langit-langit gua lalu membeku seketika.</p>
-                        </div>
-
-                        <!-- Card 4 -->
-                        <div class="geo-card">
-                            <div class="geo-icon">
-                                <i class="ph-duotone ph-waves"></i>
-                            </div>
-                            <h3>Flow Marks</h3>
-                            <p>Jejak-jejak aliran seperti guratan atau gelombang pada dinding yang merekam arah dan dinamika kecepatan lava di masa purba.</p>
-                        </div>
-                    </div>
-
-                    <!-- Timeline Pembentukan -->
-                    <div class="section-header" style="margin-top: 100px;">
-                        <h2>Sejarah Pembentukan</h2>
-                        <p>Kronologi singkat bagaimana Lorong Lava Gua Pandan tercipta.</p>
-                    </div>
-
-                    <div class="timeline">
-                        <div class="timeline-item left fade-up">
-                            <div class="timeline-content">
-                                <h4>1. Erupsi Vulkanik</h4>
-                                <p>Gunung api purba memuntahkan lava basaltik yang memiliki viskositas (kekentalan) sangat rendah, sehingga mampu mengalir cepat ke area dataran.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item right fade-up">
-                            <div class="timeline-content">
-                                <h4>2. Pendinginan Permukaan</h4>
-                                <p>Udara dingin di atmosfer menyebabkan bagian terluar (permukaan) dari aliran lava membeku lebih dahulu, membentuk kerak atau cangkang keras pelindung.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item left fade-up">
-                            <div class="timeline-content">
-                                <h4>3. Aliran Sub-permukaan</h4>
-                                <p>Terisolasi dari suhu luar, magma pijar di bawah kerak yang sudah membeku ini tetap panas dan terus mengalir maju membelah jalur di dalamnya.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item right fade-up">
-                            <div class="timeline-content">
-                                <h4>4. Terbentuknya Gua</h4>
-                                <p>Saat pasokan lava dari pusat letusan berhenti, sisa magma mengalir habis keluar meningalkan terowongan kosong yang kini kita kenal sebagai Gua Pandan.</p>
-                            </div>
-                        </div>
-                    </div>
-
+        <section id="geologi" class="section-block alt-bg">
+            <div class="container fade-up">
+                <div class="section-header">
+                    <h2>Fitur Geologi Utama</h2>
+                    <p>Anatomi gua dan formasi batuan penyusun ekosistem vulkanik eksotis ini.</p>
                 </div>
+
+                <div class="geo-grid">
+                    <!-- Card 1 -->
+                    <div class="geo-card">
+                        <div class="geo-icon">
+                            <i class="ph-duotone ph-fire"></i>
+                        </div>
+                        <h3>Lorong Lava</h3>
+                        <p>Terbentuk saat aliran lava permukaan membeku menjadi kerak keras, sementara magma cair di dalamnya tetap mengalir meninggalkan rongga terowongan.</p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="geo-card">
+                        <div class="geo-icon">
+                            <i class="ph-duotone ph-hexagon"></i>
+                        </div>
+                        <h3>Basalt Vesikular</h3>
+                        <p>Batuan penyusun utama bertekstur unik, dipenuhi oleh rongga-rongga kecil akibat gelembung gas yang terperangkap saat pendinginan drastis.</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="geo-card">
+                        <div class="geo-icon">
+                            <i class="ph-duotone ph-drop-half-bottom"></i>
+                        </div>
+                        <h3>Lavacicle</h3>
+                        <p>Bentukan langka menyerupai stalaktit yang terbentuk dari sisa lelehan lava yang menetes perlahan dari langit-langit gua lalu membeku seketika.</p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="geo-card">
+                        <div class="geo-icon">
+                            <i class="ph-duotone ph-waves"></i>
+                        </div>
+                        <h3>Flow Marks</h3>
+                        <p>Jejak-jejak aliran seperti guratan atau gelombang pada dinding yang merekam arah dan dinamika kecepatan lava di masa purba.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Pembentukan -->
+                <div class="section-header" style="margin-top: 100px;">
+                    <h2>Sejarah Pembentukan</h2>
+                    <p>Kronologi singkat bagaimana Lorong Lava Gua Pandan tercipta.</p>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item left fade-up">
+                        <div class="timeline-content">
+                            <h4>1. Erupsi Vulkanik</h4>
+                            <p>Gunung api purba memuntahkan lava basaltik yang memiliki viskositas (kekentalan) sangat rendah, sehingga mampu mengalir cepat ke area dataran.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right fade-up">
+                        <div class="timeline-content">
+                            <h4>2. Pendinginan Permukaan</h4>
+                            <p>Udara dingin di atmosfer menyebabkan bagian terluar (permukaan) dari aliran lava membeku lebih dahulu, membentuk kerak atau cangkang keras pelindung.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left fade-up">
+                        <div class="timeline-content">
+                            <h4>3. Aliran Sub-permukaan</h4>
+                            <p>Terisolasi dari suhu luar, magma pijar di bawah kerak yang sudah membeku ini tetap panas dan terus mengalir maju membelah jalur di dalamnya.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right fade-up">
+                        <div class="timeline-content">
+                            <h4>4. Terbentuknya Gua</h4>
+                            <p>Saat pasokan lava dari pusat letusan berhenti, sisa magma mengalir habis keluar meningalkan terowongan kosong yang kini kita kenal sebagai Gua Pandan.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
         <!-- Galeri Section -->
-        <section id="galeri">
-            <div class="section-block">
-                <div class="container fade-up">
-                    <div class="section-header">
-                        <h2>Galeri Penjelajahan</h2>
-                        <p>Dokumentasi keindahan struktur vulkanik dan penelusuran Gua Pandan.</p>
-                    </div>
+        <section id="galeri" class="section-block">
+            <div class="container fade-up">
+                <div class="section-header">
+                    <h2>Galeri Penjelajahan</h2>
+                    <p>Dokumentasi keindahan struktur vulkanik dan penelusuran Gua Pandan.</p>
+                </div>
                     
-                    <div class="gallery-grid">
-                        <!-- Foto Lorong -->
-                        <div class="gallery-item">
-                            <img src="./foto-lorong.jpg" loading="lazy" decoding="async" onerror="this.src='https://images.unsplash.com/photo-1574512969018-86d1b7c1264c?q=80&w=2000&auto=format&fit=crop'" alt="Lorong Lava">
-                            <div class="gallery-overlay">
-                                <h4>Lorong Lava</h4>
-                                <p>Terowongan memanjang hasil pembekuan sisa aliran magma purba di bawah permukaan.</p>
-                            </div>
+                <div class="gallery-grid">
+                    <!-- Foto Lorong -->
+                    <div class="gallery-item">
+                        <img src="./foto-lorong.jpg" loading="lazy" decoding="async" onerror="this.src='https://images.unsplash.com/photo-1574512969018-86d1b7c1264c?q=80&w=2000&auto=format&fit=crop'" alt="Lorong Lava">
+                        <div class="gallery-overlay">
+                            <h4>Lorong Lava</h4>
+                            <p>Terowongan memanjang hasil pembekuan sisa aliran magma purba di bawah permukaan.</p>
                         </div>
+                    </div>
                         
-                        <!-- Foto Vesikular -->
-                        <div class="gallery-item">
-                            <img src="./foto-vesikular.jpg" loading="lazy" decoding="async" onerror="this.src='https://images.unsplash.com/photo-1602521996796-02e07dd38e12?q=80&w=2000&auto=format&fit=crop'" alt="Tekstur Vesikular">
-                            <div class="gallery-overlay">
-                                <h4>Tekstur Vesikular</h4>
-                                <p>Rongga udara pada dinding basalt akibat gas vulkanik yang terperangkap saat proses pendinginan cepat.</p>
-                            </div>
+                    <!-- Foto Vesikular -->
+                    <div class="gallery-item">
+                        <img src="./foto-vesikular.jpg" loading="lazy" decoding="async" onerror="this.src='https://images.unsplash.com/photo-1602521996796-02e07dd38e12?q=80&w=2000&auto=format&fit=crop'" alt="Tekstur Vesikular">
+                        <div class="gallery-overlay">
+                            <h4>Tekstur Vesikular</h4>
+                            <p>Rongga udara pada dinding basalt akibat gas vulkanik yang terperangkap saat proses pendinginan cepat.</p>
                         </div>
+                    </div>
                         
-                        <!-- Foto Mulut Gua -->
-                        <div class="gallery-item">
-                            <img src="./foto-gerbang.jpg" loading="lazy" decoding="async" onerror="this.src='https://images.unsplash.com/photo-1549887552-cb1071d3e5ca?q=80&w=2000&auto=format&fit=crop'" alt="Mulut Gua Pandan">
-                            <div class="gallery-overlay">
-                                <h4>Mulut Gua Pandan</h4>
-                                <p>Akses pintu masuk alami menuju ekosistem bawah tanah yang eksotis dan dikelilingi vegetasi rapat.</p>
-                            </div>
+                    <!-- Foto Mulut Gua -->
+                    <div class="gallery-item">
+                        <img src="./foto-gerbang.jpg" loading="lazy" decoding="async" onerror="this.src='https://images.unsplash.com/photo-1549887552-cb1071d3e5ca?q=80&w=2000&auto=format&fit=crop'" alt="Mulut Gua Pandan">
+                        <div class="gallery-overlay">
+                            <h4>Mulut Gua Pandan</h4>
+                            <p>Akses pintu masuk alami menuju ekosistem bawah tanah yang eksotis dan dikelilingi vegetasi rapat.</p>
                         </div>
                     </div>
                 </div>
@@ -1081,93 +1077,88 @@
         </section>
 
         <!-- Lokasi Section -->
-        <section id="lokasi">
-            <div class="section-block alt-bg">
-                <div class="container fade-up">
-                    <div class="section-header">
-                        <h2>Lokasi Geosite</h2>
-                        <p>Kunjungi secara langsung dan saksikan keajaiban alam ini secara nyata.</p>
-                    </div>
+        <section id="lokasi" class="section-block alt-bg">
+            <div class="container fade-up">
+                <div class="section-header">
+                    <h2>Lokasi Geosite</h2>
+                    <p>Kunjungi secara langsung dan saksikan keajaiban alam ini secara nyata.</p>
+                </div>
                     
-                    <div class="location-grid">
-                        <div class="location-info">
-                            <h3>Informasi Akses</h3>
-                            <div class="location-details">
-                                <p>
-                                    <i class="ph-duotone ph-map-pin-line"></i>
-                                    <span><strong>Alamat:</strong><br>Kecamatan Sukadana, Kabupaten Lampung Timur, Provinsi Lampung, Indonesia.</span>
-                                </p>
-                                <p>
-                                    <i class="ph-duotone ph-car-profile"></i>
-                                    <span><strong>Aksesibilitas:</strong><br>Berjarak sekitar 2-3 jam perjalanan darat dari Kota Bandar Lampung. Dapat diakses menggunakan kendaraan roda dua maupun roda empat hingga area parkir.</span>
-                                </p>
-                                <p>
-                                    <i class="ph-duotone ph-warning-circle"></i>
-                                    <span><strong>Perhatian:</strong><br>Pastikan membawa alat penerangan memadai, helm safety, dan sepatu tracking karena lantai gua berbatu dan licin.</span>
-                                </p>
-                            </div>
+                <div class="location-grid">
+                    <div class="location-info">
+                        <h3>Informasi Akses</h3>
+                        <div class="location-details">
+                            <p>
+                                <i class="ph-duotone ph-map-pin-line"></i>
+                                <span><strong>Alamat:</strong><br>Kecamatan Sukadana, Kabupaten Lampung Timur, Provinsi Lampung, Indonesia.</span>
+                            </p>
+                            <p>
+                                <i class="ph-duotone ph-car-profile"></i>
+                                <span><strong>Aksesibilitas:</strong><br>Berjarak sekitar 2-3 jam perjalanan darat dari Kota Bandar Lampung. Dapat diakses menggunakan kendaraan roda dua maupun roda empat hingga area parkir.</span>
+                            </p>
+                            <p>
+                                <i class="ph-duotone ph-warning-circle"></i>
+                                <span><strong>Perhatian:</strong><br>Pastikan membawa alat penerangan memadai, helm safety, dan sepatu tracking karena lantai gua berbatu dan licin.</span>
+                            </p>
                         </div>
-                        <div class="map-container">
-                            <!-- Placeholder Map Google ditambahkan Loading Lazy dengan embed baru GOA PANDAN GIRI MULYO -->
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4789.360960738688!2d105.66716237576154!3d-5.391078594587933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40fa36a5b1d2b7%3A0xd9a1392387c317de!2sGOA%20PANDAN%20GIRI%20MULYO!5e1!3m2!1sid!2sid!4v1777709667772!5m2!1sid!2sid" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
+                    </div>
+                    <div class="map-container">
+                        <!-- Peta embed baru GOA PANDAN GIRI MULYO -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4789.360960738688!2d105.66716237576154!3d-5.391078594587933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40fa36a5b1d2b7%3A0xd9a1392387c317de!2sGOA%20PANDAN%20GIRI%20MULYO!5e1!3m2!1sid!2sid!4v1777709667772!5m2!1sid!2sid" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Profil Pengembang -->
-        <section id="profil">
-            <div class="section-block">
-                <div class="container fade-up">
-                    <div class="section-header">
-                        <h2>Profil Pengembang</h2>
-                        <p>Mengenal tim kreator di balik visualisasi interaktif ini.</p>
-                    </div>
+        <section id="profil" class="section-block">
+            <div class="container fade-up">
+                <div class="section-header">
+                    <h2>Profil Pengembang</h2>
+                    <p>Mengenal tim kreator di balik visualisasi interaktif ini.</p>
+                </div>
                     
-                    <div class="profile-grid">
-                        <!-- Profil 1 -->
-                        <div class="profile-card">
-                            <img src="./foto-creator.jpg" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/400x400?text=Ignatius'" alt="Ignatius Canapolo Sinaga" class="profile-img">
-                            <div class="profile-info">
-                                <h3>Ignatius Canapolo Sinaga</h3>
-                                <h4>Teknik Geologi, ITERA</h4>
-                                <p>Membangun platform edukasi ini sebagai sarana konservasi digital geoheritage Gua Pandan, agar keajaiban geologi ini dapat diakses secara global.</p>
+                <div class="profile-grid">
+                    <!-- Profil 1 -->
+                    <div class="profile-card">
+                        <img src="./foto-creator.jpg" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/400x400?text=Ignatius'" alt="Ignatius Canapolo Sinaga" class="profile-img">
+                        <div class="profile-info">
+                            <h3>Ignatius Canapolo Sinaga</h3>
+                            <h4>Teknik Geologi, ITERA</h4>
+                            <p>Membangun platform edukasi ini sebagai sarana konservasi digital geoheritage Gua Pandan, agar keajaiban geologi ini dapat diakses secara global.</p>
                                 
-                                <div class="social-links">
-                                    <a href="#" target="_blank"><i class="ph-fill ph-instagram-logo"></i></a>
-                                    <a href="#" target="_blank"><i class="ph-fill ph-linkedin-logo"></i></a>
-                                </div>
+                            <div class="social-links">
+                                <a href="https://www.instagram.com/ignatius_sinaga?igsh=N3FtcGpqZ3Y4ZTg0" target="_blank"><i class="ph-fill ph-instagram-logo"></i></a>
+                                <a href="https://www.linkedin.com/in/ignatiussinaga" target="_blank"><i class="ph-fill ph-linkedin-logo"></i></a>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Profil 2: Gilang Radityo -->
-                        <div class="profile-card">
-                            <img src="./foto-gilang.jpg" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/400x400?text=Gilang'" alt="Gilang Radityo" class="profile-img">
-                            <div class="profile-info">
-                                <h3>Gilang Radityo</h3>
-                                <h4>Teknik Geologi, ITERA</h4>
-                                <p>Berperan dalam akuisisi data lapangan. Fokus pada pemodelan 3D dan virtual tour agar masyarakat dapat memahami kekayaan alam tanpa merusak situs aslinya.</p>
+                    <!-- Profil 2: Gilang Radityo -->
+                    <div class="profile-card">
+                        <img src="./foto-gilang.jpg" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/400x400?text=Gilang'" alt="Gilang Radityo" class="profile-img">
+                        <div class="profile-info">
+                            <h3>Gilang Radityo</h3>
+                            <h4>Teknik Geologi, ITERA</h4>
+                            <p>Berperan dalam akuisisi data lapangan. Fokus pada pemodelan 3D dan virtual tour agar masyarakat dapat memahami kekayaan alam tanpa merusak situs aslinya.</p>
                                 
-                                <div class="social-links">
-                                    <a href="#" target="_blank"><i class="ph-fill ph-instagram-logo"></i></a>
-                                    <a href="#" target="_blank"><i class="ph-fill ph-linkedin-logo"></i></a>
-                                </div>
+                            <div class="social-links">
+                                <a href="https://www.instagram.com/gilang_radityo?igsh=cWl1ZHJiczZnNjZz" target="_blank"><i class="ph-fill ph-instagram-logo"></i></a>
+                                <a href="https://www.linkedin.com/in/gilang-radityo-7a726a2ab?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank"><i class="ph-fill ph-linkedin-logo"></i></a>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Profil 3: Rafi Barus -->
-                        <div class="profile-card">
-                            <img src="./foto-rafi.jpg" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/400x400?text=Rafi'" alt="Rafi Barus" class="profile-img">
-                            <div class="profile-info">
-                                <h3>Rafi Barus</h3>
-                                <h4>Teknik Geologi, ITERA</h4>
-                                <p>Bertanggung jawab pada analisis data geologi dan penyusunan konten edukasi. Berdedikasi untuk memasyarakatkan ilmu kebumian melalui media visual interaktif.</p>
+                    <!-- Profil 3: Rafi Barus -->
+                    <div class="profile-card">
+                        <img src="./foto-rafi.jpg" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/400x400?text=Rafi'" alt="Rafi Barus" class="profile-img">
+                        <div class="profile-info">
+                            <h3>Rafi Barus</h3>
+                            <h4>Teknik Geologi, ITERA</h4>
+                            <p>Bertanggung jawab pada analisis data geologi dan penyusunan konten edukasi. Berdedikasi untuk memasyarakatkan ilmu kebumian melalui media visual interaktif.</p>
                                 
-                                <div class="social-links">
-                                    <a href="#" target="_blank"><i class="ph-fill ph-instagram-logo"></i></a>
-                                    <a href="#" target="_blank"><i class="ph-fill ph-linkedin-logo"></i></a>
-                                </div>
+                            <div class="social-links">
+                                <a href="https://www.instagram.com/rapiiw_?utm_source=qr&igsh=MW1mbGlka3gyb2dieg%3D%3D" target="_blank"><i class="ph-fill ph-instagram-logo"></i></a>
                             </div>
                         </div>
                     </div>
@@ -1233,9 +1224,8 @@
         </div>
     </div> <!-- Akhir view-explore -->
 
-    <!-- === SCRIPT JAVASCRIPT (DIOPTIMALISASI) === -->
+    <!-- === SCRIPT JAVASCRIPT (DIOPTIMALISASI UNTUK SINGLE PAGE SCROLL) === -->
     <script>
-        // Memastikan eksekusi JS setelah DOM HTML selesai dimuat untuk menghindari Error Null Pointer
         document.addEventListener("DOMContentLoaded", () => {
             
             // 1. Toggle Mobile Menu (Null Safety)
@@ -1248,7 +1238,6 @@
                 });
             }
 
-            // Mendaftarkan fungsi closeMobileMenu ke global scope (untuk onclick button HTML)
             window.closeMobileMenu = function() {
                 if (window.innerWidth <= 768 && navLinks) {
                     navLinks.classList.remove('active');
@@ -1297,10 +1286,9 @@
                 });
             }
 
-            // 4. Update Navigasi Aktif dengan Intersection Observer (PERBAIKAN LAG/JANK)
-            // Menggantikan event listener 'scroll' yang berat dengan API modern ini
+            // 4. Update Navigasi Aktif dengan Intersection Observer saat Scroll
             const sections = document.querySelectorAll("section");
-            const navItems = document.querySelectorAll(".nav-links a");
+            const navItems = document.querySelectorAll(".nav-links a:not(.btn-nav)"); // Kecualikan tombol eksplorasi
             
             if (sections.length > 0 && navItems.length > 0) {
                 const navObserverOptions = {
