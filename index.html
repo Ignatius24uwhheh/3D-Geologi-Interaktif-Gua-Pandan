@@ -47,6 +47,11 @@
             scroll-behavior: smooth;
         }
 
+        /* Kelas untuk menahan scroll saat opening */
+        body.no-scroll {
+            overflow: hidden;
+        }
+
         h1, h2, h3, h4 {
             font-family: 'Merriweather', serif;
             color: var(--theme-dark);
@@ -62,6 +67,87 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+
+        /* === SPLASH SCREEN / OPENING === */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: var(--theme-darker);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+        }
+
+        #splash-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .splash-content {
+            text-align: center;
+            animation: pulse-splash 2s infinite;
+        }
+
+        .splash-icon {
+            font-size: 4.5rem;
+            color: var(--theme-gold);
+            margin-bottom: 20px;
+            display: inline-block;
+            filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.4));
+        }
+
+        .splash-title {
+            font-size: 2rem;
+            color: var(--theme-gold);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .splash-subtitle {
+            font-size: 1.1rem;
+            color: #d1d5db;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+        }
+
+        .loader-line {
+            width: 200px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 0 auto;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loader-line::after {
+            content: '';
+            position: absolute;
+            left: -50%;
+            width: 50%;
+            height: 100%;
+            background-color: var(--theme-gold);
+            animation: slide-load 1.5s ease-in-out infinite;
+        }
+
+        @keyframes slide-load {
+            0% { left: -50%; }
+            100% { left: 100%; }
+        }
+
+        @keyframes pulse-splash {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
         }
 
         /* === NAVIGASI === */
@@ -888,7 +974,17 @@
         }
     </style>
 </head>
-<body>
+<body class="no-scroll">
+
+    <!-- ================= ANIMASI OPENING BUMI ================= -->
+    <div id="splash-screen">
+        <div class="splash-content">
+            <i class="ph-duotone ph-globe-hemisphere-west splash-icon"></i>
+            <h2 class="splash-title">Menyingkap Rahasia Bumi...</h2>
+            <p class="splash-subtitle">Selamat Datang di Geoheritage Gua Pandan</p>
+            <div class="loader-line"></div>
+        </div>
+    </div>
 
     <!-- ================= HALAMAN 1: BERANDA & EDUKASI ================= -->
     <div id="view-home">
@@ -1224,10 +1320,21 @@
         </div>
     </div> <!-- Akhir view-explore -->
 
-    <!-- === SCRIPT JAVASCRIPT (DIOPTIMALISASI UNTUK SINGLE PAGE SCROLL) === -->
+    <!-- === SCRIPT JAVASCRIPT === -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             
+            // 0. Logika Menghilangkan Opening / Splash Screen
+            const splashScreen = document.getElementById('splash-screen');
+            if (splashScreen) {
+                // Tahan animasi selama sekitar 2.5 detik lalu pudarkan
+                setTimeout(() => {
+                    splashScreen.classList.add('hidden');
+                    // Mengembalikan fungsi scroll pada body
+                    document.body.classList.remove('no-scroll');
+                }, 2500);
+            }
+
             // 1. Toggle Mobile Menu (Null Safety)
             const mobileMenuBtn = document.getElementById('mobile-menu');
             const navLinks = document.getElementById('nav-links');
