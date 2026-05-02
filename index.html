@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Phosphor Icons -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Phosphor Icons (Ditambahkan 'defer' agar tidak memblokir render HTML awal) -->
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
 
     <style>
         /* === VARIABEL WARNA & TEMA PREMIUM === */
@@ -946,8 +946,8 @@
                             <p>Berdasarkan berbagai studi geologi, litologi utama penyusun dinding dan lorong Gua Pandan adalah <strong>basalt vesikular</strong>. Batuan magmatik ini terbentuk ketika lava basaltik dengan viskositas rendah mendingin dengan sangat cepat, lalu memerangkap gas-gas vulkanik sehingga menciptakan struktur batuan berongga (vesikel). Gua ini menjadi laboratorium alam yang luar biasa untuk mempelajari jejak vulkanisme purba.</p>
                         </div>
                         <div class="about-image">
-                            <!-- Image Fallback untuk preview -->
-                            <img src="foto-gua-pandan.jpg" onerror="this.src='https://images.unsplash.com/photo-1599839619722-39751411ea63?q=80&w=2070&auto=format&fit=crop'" alt="Sistem Lorong Lava Gua Pandan">
+                            <!-- Image dengan Lazy Loading -->
+                            <img src="foto-gua-pandan.jpg" loading="lazy" decoding="async" onerror="this.src='https://images.unsplash.com/photo-1599839619722-39751411ea63?q=80&w=2070&auto=format&fit=crop'" alt="Sistem Lorong Lava Gua Pandan">
                         </div>
                     </div>
                 </div>
@@ -1049,21 +1049,21 @@
                     
                     <div class="gallery-grid">
                         <div class="gallery-item">
-                            <img src="galeri-1.jpg" onerror="this.src='https://images.unsplash.com/photo-1549887552-cb1071d3e5ca?q=80&w=2000&auto=format&fit=crop'" alt="Mulut Gua">
+                            <img src="galeri-1.jpg" loading="lazy" decoding="async" onerror="this.src='https://images.unsplash.com/photo-1549887552-cb1071d3e5ca?q=80&w=2000&auto=format&fit=crop'" alt="Mulut Gua">
                             <div class="gallery-overlay">
                                 <h4>Mulut Gua Pandan</h4>
                                 <p>Akses masuk yang dikelilingi vegetasi rapat.</p>
                             </div>
                         </div>
                         <div class="gallery-item">
-                            <img src="galeri-2.jpg" onerror="this.src='https://images.unsplash.com/photo-1602521996796-02e07dd38e12?q=80&w=2000&auto=format&fit=crop'" alt="Dinding Basalt">
+                            <img src="galeri-2.jpg" loading="lazy" decoding="async" onerror="this.src='https://images.unsplash.com/photo-1602521996796-02e07dd38e12?q=80&w=2000&auto=format&fit=crop'" alt="Dinding Basalt">
                             <div class="gallery-overlay">
                                 <h4>Tekstur Dinding</h4>
                                 <p>Bongkahan batuan beku basalt vesikular yang khas.</p>
                             </div>
                         </div>
                         <div class="gallery-item">
-                            <img src="galeri-3.jpg" onerror="this.src='https://images.unsplash.com/photo-1574512969018-86d1b7c1264c?q=80&w=2000&auto=format&fit=crop'" alt="Lorong Dalam">
+                            <img src="galeri-3.jpg" loading="lazy" decoding="async" onerror="this.src='https://images.unsplash.com/photo-1574512969018-86d1b7c1264c?q=80&w=2000&auto=format&fit=crop'" alt="Lorong Dalam">
                             <div class="gallery-overlay">
                                 <h4>Lorong Utama</h4>
                                 <p>Dimensi terowongan utama bentukan sisa lelehan lava.</p>
@@ -1102,7 +1102,7 @@
                             </div>
                         </div>
                         <div class="map-container">
-                            <!-- Placeholder Map Google -->
+                            <!-- Placeholder Map Google ditambahkan Loading Lazy -->
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127161.43916965427!2d105.47458140366668!3d-5.045763529324637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40b79cfb7ecb15%3A0x3039d80b220cc70!2sKabupaten%20Lampung%20Timur%2C%20Lampung!5e0!3m2!1sid!2sid!4v1715000000000!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
@@ -1113,3 +1113,217 @@
         <!-- Profil Pengembang -->
         <section id="profil">
             <div class="section-block">
+                <div class="container fade-up">
+                    <div class="section-header">
+                        <h2>Profil Pengembang</h2>
+                        <p>Mengenal tim kreator di balik visualisasi interaktif ini.</p>
+                    </div>
+                    
+                    <div class="profile-grid">
+                        <!-- Profil 1 -->
+                        <div class="profile-card">
+                            <img src="foto-profil.jpg" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/400x400?text=Foto+1'" alt="Ignatius Canapolo Sinaga" class="profile-img">
+                            <div class="profile-info">
+                                <h3>Ignatius Canapolo Sinaga</h3>
+                                <h4>Teknik Geologi, ITERA</h4>
+                                <p>Membangun platform edukasi ini sebagai sarana konservasi digital geoheritage Gua Pandan, agar keajaiban geologi ini dapat diakses secara global.</p>
+                                
+                                <div class="social-links">
+                                    <a href="#" target="_blank"><i class="ph-fill ph-instagram-logo"></i></a>
+                                    <a href="#" target="_blank"><i class="ph-fill ph-linkedin-logo"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Profil 2: Gilang Radityo -->
+                        <div class="profile-card">
+                            <img src="foto-gilang.jpg" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/400x400?text=Gilang'" alt="Gilang Radityo" class="profile-img">
+                            <div class="profile-info">
+                                <h3>Gilang Radityo</h3>
+                                <h4>Teknik Geologi, ITERA</h4>
+                                <p>Berperan dalam akuisisi data lapangan. Fokus pada pemodelan 3D dan virtual tour agar masyarakat dapat memahami kekayaan alam tanpa merusak situs aslinya.</p>
+                                
+                                <div class="social-links">
+                                    <a href="#" target="_blank"><i class="ph-fill ph-instagram-logo"></i></a>
+                                    <a href="#" target="_blank"><i class="ph-fill ph-linkedin-logo"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Profil 3: Rafi Barus -->
+                        <div class="profile-card">
+                            <img src="foto-rafi.jpg" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/400x400?text=Rafi'" alt="Rafi Barus" class="profile-img">
+                            <div class="profile-info">
+                                <h3>Rafi Barus</h3>
+                                <h4>Teknik Geologi, ITERA</h4>
+                                <p>Bertanggung jawab pada analisis data geologi dan penyusunan konten edukasi. Berdedikasi untuk memasyarakatkan ilmu kebumian melalui media visual interaktif.</p>
+                                
+                                <div class="social-links">
+                                    <a href="#" target="_blank"><i class="ph-fill ph-instagram-logo"></i></a>
+                                    <a href="#" target="_blank"><i class="ph-fill ph-linkedin-logo"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nilai Geoheritage -->
+        <div class="heritage-box fade-up">
+            <div class="container">
+                <h2>Lestarikan Warisan Bumi</h2>
+                <p>Gua Pandan bukan sekadar lubang gelap di bawah tanah. Ia adalah kapsul waktu geologi, bukti dinamika vulkanik Sumatera di masa lampau yang perlu kita jaga untuk edukasi dan sains masa depan.</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <i class="ph-fill ph-mountains"></i> GeoPandan
+                    </div>
+                    <p>Platform Edukasi Geologi Premium - Gua Pandan, Lampung Timur</p>
+                </div>
+                <div class="footer-bottom">
+                    &copy; 2026 Teknik Geologi ITERA. All Rights Reserved.
+                </div>
+            </div>
+        </footer>
+
+    </div> <!-- Akhir view-home -->
+
+    <!-- ================= HALAMAN 2: EXPLORE 360 (VIRTUAL REALITY) ================= -->
+    <div id="view-explore">
+        <button class="btn-back-float" onclick="closeExploreView()">
+            <i class="ph-bold ph-arrow-left"></i> Kembali ke Beranda
+        </button>
+
+        <!-- Informasi Overlay -->
+        <div class="info-panel" id="explore-info">
+            <h3><i class="ph-fill ph-info"></i> Virtual Tour 360°</h3>
+            <p>Jelajahi setiap sudut lorong lava Gua Pandan secara interaktif. Geser layar untuk melihat ke berbagai arah.</p>
+            
+            <div class="instruksi-box">
+                <strong>Cara Navigasi:</strong>
+                <ul>
+                    <li><i class="ph-bold ph-hand-swipe-left"></i> Geser/Drag layar.</li>
+                    <li><i class="ph-bold ph-magnifying-glass-plus"></i> Scroll/Pinch untuk zoom.</li>
+                    <li><i class="ph-bold ph-cursor-click"></i> Klik ikon hotspot.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="kuula-container">
+            <!-- Lazy load iframe Kuula untuk menghemat resource saat tidak sedang dibuka -->
+            <iframe src="https://kuula.co/share/collection/7lW3L?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1" allowfullscreen="true" allow="xr-spatial-tracking; gyroscope; accelerometer" loading="lazy"></iframe>
+            
+            <div style="text-align: center; color: #fff; z-index: -1;">
+                <i class="ph-duotone ph-virtual-reality" style="font-size: 5rem; color: var(--theme-gold);"></i>
+                <h2 style="color: var(--theme-gold); margin-top: 15px;">Area Integrasi Kuula / Virtual Tour 360</h2>
+                <p>Ganti atribut <code>src</code> iframe dengan link embed aplikasi Kuula Anda.</p>
+            </div>
+        </div>
+    </div> <!-- Akhir view-explore -->
+
+    <!-- === SCRIPT JAVASCRIPT (DIOPTIMALISASI) === -->
+    <script>
+        // Memastikan eksekusi JS setelah DOM HTML selesai dimuat untuk menghindari Error Null Pointer
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            // 1. Toggle Mobile Menu (Null Safety)
+            const mobileMenuBtn = document.getElementById('mobile-menu');
+            const navLinks = document.getElementById('nav-links');
+
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                });
+            }
+
+            // Mendaftarkan fungsi closeMobileMenu ke global scope (untuk onclick button HTML)
+            window.closeMobileMenu = function() {
+                if (window.innerWidth <= 768 && navLinks) {
+                    navLinks.classList.remove('active');
+                }
+            };
+
+            // 2. Transisi Antara Home & Explore 360
+            window.openExploreView = function() {
+                const viewHome = document.getElementById('view-home');
+                const viewExplore = document.getElementById('view-explore');
+                if (viewHome && viewExplore) {
+                    viewHome.style.display = 'none';
+                    viewExplore.style.display = 'block';
+                    window.scrollTo(0, 0);
+                    closeMobileMenu();
+                }
+            };
+
+            window.closeExploreView = function() {
+                const viewHome = document.getElementById('view-home');
+                const viewExplore = document.getElementById('view-explore');
+                if (viewHome && viewExplore) {
+                    viewHome.style.display = 'block';
+                    viewExplore.style.display = 'none';
+                }
+            };
+
+            // 3. Efek Scroll Animasi (Fade-Up) menggunakan IntersectionObserver
+            const faders = document.querySelectorAll('.fade-up');
+            const appearOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            if (faders.length > 0) {
+                const appearOnScroll = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, appearOptions);
+
+                faders.forEach(fader => {
+                    appearOnScroll.observe(fader);
+                });
+            }
+
+            // 4. Update Navigasi Aktif dengan Intersection Observer (PERBAIKAN LAG/JANK)
+            // Menggantikan event listener 'scroll' yang berat dengan API modern ini
+            const sections = document.querySelectorAll("section");
+            const navItems = document.querySelectorAll(".nav-links a");
+            
+            if (sections.length > 0 && navItems.length > 0) {
+                const navObserverOptions = {
+                    root: null,
+                    rootMargin: '-50% 0px -50% 0px', // Aktif ketika bagian tengah section berada di layar
+                    threshold: 0
+                };
+
+                const navObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const currentId = entry.target.getAttribute('id');
+                            navItems.forEach(li => {
+                                li.classList.remove('active');
+                                if (li.getAttribute('href') === `#${currentId}`) {
+                                    li.classList.add('active');
+                                }
+                            });
+                        }
+                    });
+                }, navObserverOptions);
+
+                sections.forEach(section => {
+                    if (section.getAttribute("id")) {
+                        navObserver.observe(section);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
