@@ -411,6 +411,7 @@ const CSS_STYLES = `
       position: relative;
       max-width: 900px;
       margin: 0 auto;
+      margin-bottom: 40px;
   }
 
   .timeline::after {
@@ -910,18 +911,15 @@ export default function App() {
     const [activeView, setActiveView] = useState('home'); 
     const [activeNav, setActiveNav] = useState('beranda');
 
-    // Menginjeksikan Script Ikon
+    // Menginjeksikan Script Ikon dengan Aman
     useEffect(() => {
-        const script = document.createElement('script');
-        script.src = "https://unpkg.com/@phosphor-icons/web";
-        script.defer = true;
-        document.head.appendChild(script);
-
-        return () => {
-            if(document.head.contains(script)) {
-                document.head.removeChild(script);
-            }
-        };
+        if (!document.getElementById('phosphor-icons-script')) {
+            const script = document.createElement('script');
+            script.id = 'phosphor-icons-script';
+            script.src = "https://unpkg.com/@phosphor-icons/web";
+            script.defer = true;
+            document.head.appendChild(script);
+        }
     }, []);
 
     // Mengendalikan Splash Screen & Scroll
@@ -972,8 +970,8 @@ export default function App() {
         });
 
         return () => {
-            faders.forEach(fader => appearOnScroll.unobserve(fader));
-            sections.forEach(section => navObserver.unobserve(section));
+            appearOnScroll.disconnect();
+            navObserver.disconnect();
         };
     }, [activeView]);
 
@@ -990,8 +988,8 @@ export default function App() {
 
     return (
         <div style={{ minHeight: '100vh' }}>
-            {/* Menyisipkan CSS Global dengan aman */}
-            <style>{CSS_STYLES}</style>
+            {/* Menyisipkan CSS Global secara native dan aman */}
+            <style dangerouslySetInnerHTML={{ __html: CSS_STYLES }} />
 
             {/* ================= ANIMASI OPENING BUMI ================= */}
             <div id="splash-screen" className={!showSplash ? 'hidden' : ''}>
@@ -1012,13 +1010,11 @@ export default function App() {
                         <div className="brand-container">
                             <div className="partner-logos">
                                 <img 
-                                  src="./foto-itera.png" 
-                                  onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src='https://placehold.co/100x45?text=ITERA'; }} 
+                                  src="https://placehold.co/100x45?text=ITERA" 
                                   alt="Logo ITERA" 
                                 />
                                 <img 
-                                  src="./foto-gl.png" 
-                                  onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src='https://placehold.co/100x45?text=Geo'; }} 
+                                  src="https://placehold.co/100x45?text=Geo" 
                                   alt="Logo Teknik Geologi" 
                                 />
                             </div>
@@ -1072,10 +1068,9 @@ export default function App() {
                             </div>
                             <div className="about-image">
                                 <img 
-                                  src="./foto-gua-pandan.jpg" 
+                                  src="https://images.unsplash.com/photo-1599839619722-39751411ea63?q=80&w=2070&auto=format&fit=crop" 
                                   loading="lazy" 
                                   decoding="async" 
-                                  onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src='https://images.unsplash.com/photo-1599839619722-39751411ea63?q=80&w=2070&auto=format&fit=crop'; }} 
                                   alt="Sistem Lorong Lava Gua Pandan" 
                                 />
                             </div>
@@ -1163,10 +1158,9 @@ export default function App() {
                         <div className="gallery-grid">
                             <div className="gallery-item">
                                 <img 
-                                  src="./foto-lorong.jpg" 
+                                  src="https://images.unsplash.com/photo-1574512969018-86d1b7c1264c?q=80&w=2000&auto=format&fit=crop" 
                                   loading="lazy" 
                                   decoding="async" 
-                                  onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src='https://images.unsplash.com/photo-1574512969018-86d1b7c1264c?q=80&w=2000&auto=format&fit=crop'; }} 
                                   alt="Lorong Lava" 
                                 />
                                 <div className="gallery-overlay">
@@ -1177,10 +1171,9 @@ export default function App() {
                                 
                             <div className="gallery-item">
                                 <img 
-                                  src="./foto-vesikular.jpg" 
+                                  src="https://images.unsplash.com/photo-1602521996796-02e07dd38e12?q=80&w=2000&auto=format&fit=crop" 
                                   loading="lazy" 
                                   decoding="async" 
-                                  onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src='https://images.unsplash.com/photo-1602521996796-02e07dd38e12?q=80&w=2000&auto=format&fit=crop'; }} 
                                   alt="Tekstur Vesikular" 
                                 />
                                 <div className="gallery-overlay">
@@ -1191,10 +1184,9 @@ export default function App() {
                                 
                             <div className="gallery-item">
                                 <img 
-                                  src="./foto-gerbang.jpg" 
+                                  src="https://images.unsplash.com/photo-1549887552-cb1071d3e5ca?q=80&w=2000&auto=format&fit=crop" 
                                   loading="lazy" 
                                   decoding="async" 
-                                  onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src='https://images.unsplash.com/photo-1549887552-cb1071d3e5ca?q=80&w=2000&auto=format&fit=crop'; }} 
                                   alt="Mulut Gua Pandan" 
                                 />
                                 <div className="gallery-overlay">
@@ -1258,10 +1250,9 @@ export default function App() {
                             {/* Profil 1 */}
                             <div className="profile-card">
                                 <img 
-                                  src="./foto-creator.jpg" 
+                                  src="https://placehold.co/400x400?text=Ignatius" 
                                   loading="lazy" 
                                   decoding="async" 
-                                  onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src='https://placehold.co/400x400?text=Ignatius'; }} 
                                   alt="Ignatius Canapolo Sinaga" 
                                   className="profile-img" 
                                 />
@@ -1279,10 +1270,9 @@ export default function App() {
                             {/* Profil 2 */}
                             <div className="profile-card">
                                 <img 
-                                  src="./foto-gilang.jpg" 
+                                  src="https://placehold.co/400x400?text=Gilang" 
                                   loading="lazy" 
                                   decoding="async" 
-                                  onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src='https://placehold.co/400x400?text=Gilang'; }} 
                                   alt="Gilang Radityo" 
                                   className="profile-img" 
                                 />
@@ -1300,10 +1290,9 @@ export default function App() {
                             {/* Profil 3 */}
                             <div className="profile-card">
                                 <img 
-                                  src="./foto-rafi.jpg" 
+                                  src="https://placehold.co/400x400?text=Rafi" 
                                   loading="lazy" 
                                   decoding="async" 
-                                  onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src='https://placehold.co/400x400?text=Rafi'; }} 
                                   alt="Rafi Barus" 
                                   className="profile-img" 
                                 />
