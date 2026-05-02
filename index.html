@@ -959,14 +959,13 @@ const CSS_STYLES = `
 export default function App() {
     const [showSplash, setShowSplash] = useState(true);
     const [mobileMenuActive, setMobileMenuActive] = useState(false);
-    const [activeView, setActiveView] = useState('home'); // 'home' atau 'explore'
+    const [activeView, setActiveView] = useState('home'); 
     const [isFullscreen, setIsFullscreen] = useState(false);
     const [activeNav, setActiveNav] = useState('beranda');
     const [toastMessage, setToastMessage] = useState('');
 
-    // Menginjeksikan Script Ikon dan Konfigurasi Body
+    // Menginjeksikan Script Ikon
     useEffect(() => {
-        // Load Phosphor Icons
         const script = document.createElement('script');
         script.src = "https://unpkg.com/@phosphor-icons/web";
         script.defer = true;
@@ -996,7 +995,7 @@ export default function App() {
         }
     }, [showSplash]);
 
-    // Deteksi Fullscreen otomatis dari OS/Browser (bila user tekan ESC)
+    // Deteksi Fullscreen
     useEffect(() => {
         const handleFullscreenChange = () => {
             setIsFullscreen(!!(document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement));
@@ -1015,9 +1014,9 @@ export default function App() {
         };
     }, []);
 
-    // Observer untuk Animasi Fade-Up dan Navigasi Aktif
+    // Observer untuk Animasi
     useEffect(() => {
-        if (activeView !== 'home') return; // Jalankan observasi hanya saat di tampilan Home
+        if (activeView !== 'home') return; 
 
         const faders = document.querySelectorAll('.fade-up');
         const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
@@ -1057,36 +1056,44 @@ export default function App() {
         setTimeout(() => setToastMessage(''), 4000);
     };
 
-    // Fungsi Toggle Layar Penuh dengan penanganan Error yang aman
-    const toggleFullScreen = async () => {
+    // Fungsi Pembantu Tangani Error Fullscreen (Sangat Aman)
+    const handleFullscreenError = (err) => {
+        console.warn("Fullscreen diblokir oleh lingkungan/browser:", err);
+        showToast("Fitur Layar Penuh dinonaktifkan sementara di pratinjau ini.");
+    };
+
+    // Fungsi Toggle Layar Penuh
+    const toggleFullScreen = () => {
         try {
             const elem = document.documentElement;
-            if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
-                if (elem.requestFullscreen) {
-                    await elem.requestFullscreen().catch(err => {
-                        console.warn("Fullscreen diblokir: ", err);
-                        showToast("Fitur Layar Penuh tidak didukung di lingkungan pratinjau ini.");
-                    });
+            if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.mozFullScreenElement && !document.msFullscreenElement) {
+                let promise;
+                if (elem.requestFullscreen) promise = elem.requestFullscreen();
+                else if (elem.webkitRequestFullscreen) promise = elem.webkitRequestFullscreen();
+                else if (elem.mozRequestFullScreen) promise = elem.mozRequestFullScreen();
+                else if (elem.msRequestFullscreen) promise = elem.msRequestFullscreen();
+                
+                if (promise !== undefined && promise.catch) {
+                    promise.catch(handleFullscreenError);
                 }
-                else if (elem.msRequestFullscreen) elem.msRequestFullscreen();
-                else if (elem.mozRequestFullScreen) elem.mozRequestFullScreen();
-                else if (elem.webkitRequestFullscreen) elem.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
             } else {
-                if (document.exitFullscreen) {
-                    await document.exitFullscreen().catch(err => console.warn("Exit fullscreen diblokir: ", err));
+                let promise;
+                if (document.exitFullscreen) promise = document.exitFullscreen();
+                else if (document.webkitExitFullscreen) promise = document.webkitExitFullscreen();
+                else if (document.mozCancelFullScreen) promise = document.mozCancelFullScreen();
+                else if (document.msExitFullscreen) promise = document.msExitFullscreen();
+
+                if (promise !== undefined && promise.catch) {
+                    promise.catch(e => console.warn(e));
                 }
-                else if (document.msExitFullscreen) document.msExitFullscreen();
-                else if (document.mozCancelFullScreen) document.mozCancelFullScreen();
-                else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
             }
         } catch (error) {
-            console.warn("API Fullscreen error.", error);
-            showToast("Fitur Layar Penuh tidak didukung di lingkungan pratinjau ini.");
+            handleFullscreenError(error);
         }
     };
 
     // Fungsi Navigasi Eksplorasi
-    const openExploreView = async () => {
+    const openExploreView = () => {
         setActiveView('explore');
         setMobileMenuActive(false);
         window.scrollTo(0, 0);
@@ -1094,21 +1101,25 @@ export default function App() {
         try {
             const elem = document.documentElement;
             if (!document.fullscreenElement && elem.requestFullscreen) {
-                await elem.requestFullscreen().catch(err => {
-                    console.log("Otomatis fullscreen dicegah browser.");
-                });
+                const promise = elem.requestFullscreen();
+                if (promise !== undefined && promise.catch) {
+                    promise.catch(e => console.log("Otomatis fullscreen ditolak"));
+                }
             }
         } catch (error) {
             console.log("Fullscreen API error:", error);
         }
     };
 
-    const closeExploreView = async () => {
+    const closeExploreView = () => {
         setActiveView('home');
         
         try {
             if (document.fullscreenElement && document.exitFullscreen) {
-                await document.exitFullscreen().catch(err => console.log("Keluar fullscreen bermasalah."));
+                const promise = document.exitFullscreen();
+                if (promise !== undefined && promise.catch) {
+                    promise.catch(e => console.log("Gagal keluar fullscreen"));
+                }
             }
         } catch (error) {
             console.log("Exit fullscreen error:", error);
@@ -1117,8 +1128,8 @@ export default function App() {
 
     return (
         <div style={{ minHeight: '100vh' }}>
-            {/* Menyisipkan CSS Global */}
-            <style dangerouslySetInnerHTML={{ __html: CSS_STYLES }} />
+            {/* Menyisipkan CSS Global dengan aman */}
+            <style>{CSS_STYLES}</style>
 
             {/* ================= ANIMASI OPENING BUMI ================= */}
             <div id="splash-screen" className={!showSplash ? 'hidden' : ''}>
@@ -1362,6 +1373,7 @@ export default function App() {
                             <div className="map-container">
                                 <iframe 
                                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4789.360960738688!2d105.66716237576154!3d-5.391078594587933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40fa36a5b1d2b7%3A0xd9a1392387c317de!2sGOA%20PANDAN%20GIRI%20MULYO!5e1!3m2!1sid!2sid!4v1777709667772!5m2!1sid!2sid" 
+                                  title="Peta Lokasi Goa Pandan"
                                   style={{ border: 0 }} 
                                   allowFullScreen={true} 
                                   loading="lazy" 
@@ -1497,6 +1509,7 @@ export default function App() {
                 <div className="kuula-container">
                     <iframe 
                       src="https://kuula.co/share/collection/7lW3L?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1" 
+                      title="Kuula 360 Virtual Tour"
                       allowFullScreen={true} 
                       allow="xr-spatial-tracking; gyroscope; accelerometer" 
                       loading="lazy">
