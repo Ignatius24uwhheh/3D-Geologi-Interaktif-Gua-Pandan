@@ -16,14 +16,14 @@
     <style>
         /* === VARIABEL WARNA & TEMA PREMIUM === */
         :root {
-            --theme-dark: #121212;         /* Hitam elegan / Obsidian untuk teks utama dan latar belakang elemen */
+            --theme-dark: #121212;         /* Hitam elegan / Obsidian */
             --theme-darker: #0a0a0a;       /* Hitam pekat */
-            --theme-gold: #D4AF37;         /* Emas klasik / Champagne Gold untuk aksen mewah */
-            --theme-gold-hover: #b5952f;   /* Emas gelap untuk efek hover */
-            --bg-color: #FAFAFA;           /* Putih bersih elegan untuk latar utama */
-            --bg-alt: #F3F4F6;             /* Abu-abu sangat terang untuk membedakan blok */
-            --text-main: #2b2b2b;          /* Abu-abu gelap kehitaman untuk kemudahan membaca */
-            --text-muted: #6B7280;         /* Abu-abu netral untuk teks penjelas */
+            --theme-gold: #D4AF37;         /* Emas klasik / Champagne Gold */
+            --theme-gold-hover: #b5952f;   /* Emas gelap untuk hover */
+            --bg-color: #FAFAFA;           /* Putih bersih elegan */
+            --bg-alt: #F3F4F6;             /* Abu-abu terang */
+            --text-main: #2b2b2b;          /* Abu-abu gelap */
+            --text-muted: #6B7280;         /* Abu-abu netral */
             --white: #ffffff;
             --transition: all 0.3s ease-in-out;
             --shadow-sm: 0 4px 6px rgba(0,0,0,0.03);
@@ -47,7 +47,6 @@
             scroll-behavior: smooth;
         }
 
-        /* Tipografi Premium untuk Judul */
         h1, h2, h3, h4 {
             font-family: 'Merriweather', serif;
             color: var(--theme-dark);
@@ -65,7 +64,7 @@
             padding: 0 20px;
         }
 
-        /* === NAVIGASI MEWAH === */
+        /* === NAVIGASI === */
         nav {
             position: fixed;
             top: 0;
@@ -75,7 +74,7 @@
             z-index: 100;
             box-shadow: var(--shadow-sm);
             transition: var(--transition);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2); /* Garis bawah emas tipis */
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
         }
 
         .nav-container {
@@ -85,14 +84,12 @@
             height: 85px;
         }
 
-        /* Pembungkus Kumpulan Logo */
         .brand-container {
             display: flex;
             align-items: center;
             gap: 15px;
         }
 
-        /* Logo Kampus & Prodi */
         .partner-logos {
             display: flex;
             align-items: center;
@@ -102,12 +99,11 @@
         }
 
         .partner-logos img {
-            height: 45px; /* Sesuaikan ukuran logo di sini */
+            height: 45px;
             width: auto;
             object-fit: contain;
         }
 
-        /* Teks Logo GeoPandan */
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
@@ -120,7 +116,7 @@
         }
 
         .logo i {
-            color: var(--theme-gold); /* Ikon emas */
+            color: var(--theme-gold);
         }
 
         .nav-links {
@@ -147,7 +143,7 @@
             background-color: var(--theme-gold);
             color: var(--theme-dark) !important;
             padding: 12px 24px;
-            border-radius: 4px; /* Sudut sedikit tegas untuk kesan modern/elegan */
+            border-radius: 4px;
             font-weight: 600;
             letter-spacing: 0.5px;
         }
@@ -158,7 +154,6 @@
             box-shadow: var(--shadow-md);
         }
 
-        /* Hamburger Menu (Mobile) */
         .menu-toggle {
             display: none;
             font-size: 2rem;
@@ -172,10 +167,10 @@
             animation: fadeIn 0.8s ease-in-out;
         }
 
-        /* Hero Section (Parallax) */
+        /* Hero Section */
         .hero {
             height: 100vh;
-            background-image: linear-gradient(rgba(18, 18, 18, 0.6), rgba(18, 18, 18, 0.8)), url('foto-bg.png');
+            background-image: linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.85)), url('https://images.unsplash.com/photo-1518302057166-afde90786b62?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -185,7 +180,6 @@
             text-align: center;
             color: var(--white);
             padding: 0 20px;
-            margin-top: 0;
         }
 
         .hero-content {
@@ -234,7 +228,7 @@
             box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
         }
 
-        /* === GLOBAL SECTION BLOCKS (FULL SCREEN) === */
+        /* Global Sections */
         section {
             padding: 0;
         }
@@ -282,7 +276,7 @@
             font-size: 1.1rem;
         }
 
-        /* Latar Belakang (2 Columns) */
+        /* Latar Belakang */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -318,11 +312,12 @@
             transform: scale(1.05);
         }
 
-        /* Geologi (Grid Cards) */
+        /* Geologi Cards */
         .geo-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 30px;
+            margin-bottom: 80px;
         }
 
         .geo-card {
@@ -357,7 +352,7 @@
             color: var(--text-muted);
         }
 
-        /* Timeline Pembentukan */
+        /* Timeline */
         .timeline {
             position: relative;
             max-width: 900px;
@@ -410,10 +405,11 @@
 
         .timeline-content {
             padding: 30px;
-            background-color: var(--bg-alt);
+            background-color: var(--white);
             border-radius: 8px;
             transition: var(--transition);
             border-left: 4px solid var(--theme-gold);
+            box-shadow: var(--shadow-sm);
         }
         
         .timeline-item.right .timeline-content {
@@ -424,7 +420,6 @@
         .timeline-content:hover {
             box-shadow: var(--shadow-md);
             transform: translateY(-5px);
-            background-color: var(--white);
         }
 
         .timeline-content h4 {
@@ -433,7 +428,7 @@
             font-size: 1.3rem;
         }
 
-        /* Galeri Foto */
+        /* Galeri Grid */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -480,17 +475,18 @@
             margin-bottom: 5px;
         }
 
-        /* Lokasi & Peta */
+        /* Lokasi */
         .location-grid {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
             gap: 40px;
+            align-items: stretch;
         }
 
         .location-info {
             background: var(--theme-dark);
             color: var(--white);
-            padding: 50px 60px;
+            padding: 50px 40px;
             border-radius: 8px;
             box-shadow: var(--shadow-lg);
             position: relative;
@@ -509,28 +505,28 @@
 
         .location-info h3 {
             margin-bottom: 30px;
-            font-size: 2rem;
-            text-align: center;
+            font-size: 1.8rem;
             color: var(--theme-gold);
         }
 
         .location-details {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
         }
 
         .location-details p {
             display: flex;
             align-items: flex-start;
-            gap: 20px;
+            gap: 15px;
             margin-bottom: 0;
             color: #d1d5db;
+            font-size: 0.95rem;
         }
 
         .location-details i {
             color: var(--theme-gold);
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-top: 2px;
         }
 
@@ -539,7 +535,8 @@
             overflow: hidden;
             border: 2px solid rgba(0,0,0,0.1);
             box-shadow: var(--shadow-md);
-            height: 500px;
+            height: 100%;
+            min-height: 400px;
             width: 100%;
             position: relative;
         }
@@ -548,38 +545,17 @@
             width: 100%;
             height: 100%;
             border: none;
-            filter: contrast(1.1) saturate(1.2); /* Efek dramatis */
-        }
-
-        .btn-map-float {
-            position: absolute;
-            bottom: 30px;
-            right: 30px;
-            background: var(--theme-dark);
-            color: var(--theme-gold);
-            padding: 15px 30px;
-            border-radius: 4px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-            transition: var(--transition);
-            text-decoration: none;
-            z-index: 10;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-            border: 1px solid var(--theme-gold);
-        }
-
-        .btn-map-float:hover {
-            background: var(--theme-gold);
-            color: var(--theme-dark) !important;
-            transform: translateY(-5px);
+            filter: contrast(1.1) saturate(1.2);
         }
 
         /* Profil Pengembang */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
         .profile-card {
             background: var(--white);
             border-radius: 12px;
@@ -587,26 +563,22 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            max-width: 900px;
-            margin: 0 auto;
             padding: 40px 30px;
             text-align: center;
             border-top: 4px solid var(--theme-gold);
             position: relative;
+            height: 100%;
+            transition: var(--transition);
         }
 
-        @media (min-width: 768px) {
-            .profile-card {
-                flex-direction: row;
-                text-align: left;
-                padding: 60px 50px;
-                gap: 50px;
-            }
+        .profile-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
         }
 
         .profile-img {
-            width: 200px;
-            height: 200px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid var(--white);
@@ -616,14 +588,14 @@
             background-color: var(--bg-alt);
         }
 
-        @media (min-width: 768px) {
-            .profile-img {
-                margin-bottom: 0;
-            }
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .profile-info h3 {
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: var(--theme-dark);
             margin-bottom: 8px;
         }
@@ -631,30 +603,25 @@
         .profile-info h4 {
             font-family: 'Poppins', sans-serif;
             color: var(--theme-gold);
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .profile-info p {
             color: var(--text-muted);
             margin-bottom: 25px;
-            line-height: 1.8;
-            font-size: 1.05rem;
+            line-height: 1.7;
+            font-size: 0.95rem;
+            flex-grow: 1; /* Mendorong tombol sosmed agar sejajar di bawah */
         }
 
         .social-links {
             display: flex;
             gap: 15px;
             justify-content: center;
-        }
-
-        @media (min-width: 768px) {
-            .social-links {
-                justify-content: flex-start;
-            }
         }
 
         .social-links a {
@@ -681,7 +648,7 @@
         .heritage-box {
             background-color: var(--theme-dark);
             color: var(--white);
-            padding: 100px 0;
+            padding: 80px 20px;
             width: 100%;
             text-align: center;
             border-top: 4px solid var(--theme-gold);
@@ -690,13 +657,13 @@
         .heritage-box h2 {
             color: var(--theme-gold);
             margin-bottom: 25px;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
         }
 
         .heritage-box p {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             max-width: 850px;
-            margin: 0 auto 40px;
+            margin: 0 auto;
             opacity: 0.85;
             line-height: 1.8;
         }
@@ -705,19 +672,15 @@
         footer {
             background-color: var(--theme-darker); 
             color: var(--white); 
-            padding: 80px 0 30px;
+            padding: 60px 0 30px;
             text-align: center;
-        }
-
-        .footer-content {
-            margin-bottom: 40px;
         }
 
         .footer-logo {
             font-size: 2rem;
             font-weight: 700;
             font-family: 'Merriweather', serif;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             display: inline-flex;
             align-items: center;
             gap: 12px;
@@ -731,11 +694,11 @@
 
         .footer-bottom {
             border-top: 1px solid rgba(255,255,255,0.1); 
-            padding-top: 25px;
+            padding-top: 20px;
+            margin-top: 30px;
             font-size: 0.95rem;
             color: var(--text-muted);
         }
-
 
         /* === HALAMAN 2: EXPLORE 360 === */
         #view-explore {
@@ -754,12 +717,21 @@
             width: 100%;
             height: 100%;
             position: relative;
+            background: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            flex-direction: column;
+            gap: 20px;
         }
 
         .kuula-container iframe {
             width: 100%;
             height: 100%;
             border: none;
+            position: absolute;
+            top:0; left:0;
         }
 
         .btn-back-float {
@@ -794,11 +766,11 @@
             position: absolute;
             top: 25px;
             right: 25px;
-            width: 350px;
+            width: 320px;
             background: rgba(18, 18, 18, 0.9);
             color: var(--white);
             backdrop-filter: blur(10px);
-            padding: 30px;
+            padding: 25px;
             border-radius: 8px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.5);
             z-index: 1010;
@@ -806,8 +778,8 @@
         }
 
         .info-panel h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -815,29 +787,29 @@
         }
 
         .info-panel p {
-            font-size: 0.95rem;
-            margin-bottom: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
             color: #d1d5db;
         }
 
         .instruksi-box {
             background: rgba(255,255,255,0.05);
-            padding: 20px;
+            padding: 15px;
             border-radius: 4px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             border-left: 2px solid var(--theme-gold);
         }
 
         .instruksi-box ul {
             list-style: none;
-            margin-top: 12px;
+            margin-top: 10px;
         }
 
         .instruksi-box li {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 10px;
+            gap: 10px;
+            margin-bottom: 8px;
             color: #f3f4f6;
         }
         
@@ -845,79 +817,31 @@
             color: var(--theme-gold);
         }
 
-        .toggle-panel {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            font-size: 1.2rem;
-            cursor: pointer;
-            color: var(--text-muted);
-            transition: var(--transition);
-        }
-        
-        .toggle-panel:hover {
-            color: var(--white);
-        }
-        
         /* === RESPONSIVE DESIGN === */
         @media screen and (max-width: 992px) {
-            .section-block {
-                padding: 70px 0;
-            }
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-            .geo-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .hero h1 {
-                font-size: 3rem;
-            }
-            .timeline::after {
-                left: 31px;
-            }
+            .section-block { padding: 70px 0; }
+            .about-grid, .location-grid { grid-template-columns: 1fr; }
+            .geo-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero h1 { font-size: 3rem; }
+            .timeline::after { left: 31px; }
             .timeline-item {
                 width: 100%;
                 padding-left: 70px;
                 padding-right: 20px;
             }
-            .timeline-item.left {
-                text-align: left;
-            }
-            .timeline-item.right {
-                left: 0;
-            }
-            .timeline-item.left::after, .timeline-item.right::after {
-                left: 23px;
-            }
-            .location-info {
-                padding: 40px 30px;
-            }
-            .brand-container {
-                gap: 10px;
-            }
-            .partner-logos {
-                padding-right: 10px;
-                border-right-width: 1px;
-                gap: 8px;
-            }
-            .partner-logos img {
-                height: 35px;
-            }
-            .logo {
-                font-size: 1.3rem;
-            }
+            .timeline-item.left { text-align: left; }
+            .timeline-item.right { left: 0; }
+            .timeline-item.left::after, .timeline-item.right::after { left: 23px; }
+            .location-info { padding: 40px 30px; }
+            .brand-container { gap: 10px; }
+            .partner-logos { padding-right: 10px; border-right-width: 1px; gap: 8px; }
+            .partner-logos img { height: 35px; }
+            .logo { font-size: 1.3rem; }
         }
 
         @media screen and (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-            .section-block {
-                padding: 60px 0;
-            }
+            .menu-toggle { display: block; }
+            .section-block { padding: 60px 0; }
             .nav-links {
                 position: fixed;
                 top: 85px;
@@ -931,12 +855,8 @@
                 transition: 0.3s;
                 gap: 20px;
             }
-            .nav-links.active {
-                left: 0;
-            }
-            .geo-grid {
-                grid-template-columns: 1fr;
-            }
+            .nav-links.active { left: 0; }
+            .geo-grid { grid-template-columns: 1fr; }
             .info-panel {
                 top: auto;
                 bottom: 20px;
@@ -944,15 +864,11 @@
                 left: 20px;
                 width: auto;
             }
-            .partner-logos img {
-                height: 28px; /* Lebih kecil agar muat di mobile */
-            }
-            .logo {
-                font-size: 1.1rem;
-            }
+            .partner-logos img { height: 28px; }
+            .logo { font-size: 1.1rem; }
         }
 
-        /* === ANIMASI & EFEK === */
+        /* === ANIMASI === */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -980,8 +896,9 @@
             <div class="container nav-container">
                 <div class="brand-container">
                     <div class="partner-logos">
-                        <img src="foto-itera.png" alt="Logo ITERA">
-                        <img src="foto-gl.png" alt="Logo Teknik Geologi">
+                        <!-- Gunakan placeholder image (fallback) jika file lokal tidak ditemukan -->
+                        <img src="foto-itera.png" onerror="this.src='https://placehold.co/100x45?text=ITERA'" alt="Logo ITERA">
+                        <img src="foto-gl.png" onerror="this.src='https://placehold.co/100x45?text=Geo'" alt="Logo Teknik Geologi">
                     </div>
                     <div class="logo">
                         <i class="ph-fill ph-mountains"></i>
@@ -993,7 +910,7 @@
                 </div>
                 <ul class="nav-links" id="nav-links">
                     <li><a href="#beranda" class="active" onclick="closeMobileMenu()">Beranda</a></li>
-                    <li><a href="#latar-belakang" onclick="closeMobileMenu()">Tentang Gua</a></li>
+                    <li><a href="#latar-belakang" onclick="closeMobileMenu()">Tentang</a></li>
                     <li><a href="#geologi" onclick="closeMobileMenu()">Geologi</a></li>
                     <li><a href="#galeri" onclick="closeMobileMenu()">Galeri</a></li>
                     <li><a href="#lokasi" onclick="closeMobileMenu()">Lokasi</a></li>
@@ -1029,7 +946,8 @@
                             <p>Berdasarkan berbagai studi geologi, litologi utama penyusun dinding dan lorong Gua Pandan adalah <strong>basalt vesikular</strong>. Batuan magmatik ini terbentuk ketika lava basaltik dengan viskositas rendah mendingin dengan sangat cepat, lalu memerangkap gas-gas vulkanik sehingga menciptakan struktur batuan berongga (vesikel). Gua ini menjadi laboratorium alam yang luar biasa untuk mempelajari jejak vulkanisme purba.</p>
                         </div>
                         <div class="about-image">
-                            <img src="foto-gua-pandan.jpg" alt="Sistem Lorong Lava Gua Pandan">
+                            <!-- Image Fallback untuk preview -->
+                            <img src="foto-gua-pandan.jpg" onerror="this.src='https://images.unsplash.com/photo-1599839619722-39751411ea63?q=80&w=2070&auto=format&fit=crop'" alt="Sistem Lorong Lava Gua Pandan">
                         </div>
                     </div>
                 </div>
@@ -1051,8 +969,8 @@
                             <div class="geo-icon">
                                 <i class="ph-duotone ph-fire"></i>
                             </div>
-                            <h3>Lorong Lava (Lava Tube)</h3>
-                            <p>Terbentuk saat aliran lava permukaan membeku menjadi kerak keras, sementara magma cair di dalamnya tetap mengalir, meninggalkan terowongan vulkanik kosong.</p>
+                            <h3>Lorong Lava</h3>
+                            <p>Terbentuk saat aliran lava permukaan membeku menjadi kerak keras, sementara magma cair di dalamnya tetap mengalir meninggalkan rongga terowongan.</p>
                         </div>
 
                         <!-- Card 2 -->
@@ -1061,7 +979,7 @@
                                 <i class="ph-duotone ph-hexagon"></i>
                             </div>
                             <h3>Basalt Vesikular</h3>
-                            <p>Batuan penyusun utama bertekstur unik, dipenuhi oleh rongga-rongga kecil akibat gelembung gas yang terperangkap saat pendinginan lava secara drastis.</p>
+                            <p>Batuan penyusun utama bertekstur unik, dipenuhi oleh rongga-rongga kecil akibat gelembung gas yang terperangkap saat pendinginan drastis.</p>
                         </div>
 
                         <!-- Card 3 -->
@@ -1069,91 +987,86 @@
                             <div class="geo-icon">
                                 <i class="ph-duotone ph-drop-half-bottom"></i>
                             </div>
-                            <h3>Lavacicle (Stalaktit Lava)</h3>
-                            <p>Bentukan langka menyerupai stalaktit yang tercipta dari sisa tetesan lava panas leleh yang membeku seketika sesaat sebelum jatuh ke lantai gua.</p>
+                            <h3>Lavacicle</h3>
+                            <p>Bentukan langka menyerupai stalaktit yang terbentuk dari sisa lelehan lava yang menetes perlahan dari langit-langit gua lalu membeku seketika.</p>
                         </div>
 
                         <!-- Card 4 -->
                         <div class="geo-card">
                             <div class="geo-icon">
-                                <i class="ph-duotone ph-mountains"></i>
+                                <i class="ph-duotone ph-waves"></i>
                             </div>
-                            <h3>Jejak Sukadana</h3>
-                            <p>Rekaman jejak letusan gunung api purba yang menghasilkan Formasi Basalt Sukadana, menjadi petunjuk penting sejarah vulkanik wilayah Lampung Timur.</p>
+                            <h3>Flow Marks</h3>
+                            <p>Jejak-jejak aliran seperti guratan atau gelombang pada dinding yang merekam arah dan dinamika kecepatan lava di masa purba.</p>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Timeline Geologi -->
-        <section id="timeline">
-            <div class="section-block">
-                <div class="container fade-up">
-                    <div class="section-header">
-                        <h2>Evolusi Geologis</h2>
-                        <p>Perjalanan waktu pembentukan Gua Pandan dari masa purba.</p>
+                    <!-- Timeline Pembentukan -->
+                    <div class="section-header" style="margin-top: 100px;">
+                        <h2>Sejarah Pembentukan</h2>
+                        <p>Kronologi singkat bagaimana Lorong Lava Gua Pandan tercipta.</p>
                     </div>
 
                     <div class="timeline">
-                        <div class="timeline-item left">
+                        <div class="timeline-item left fade-up">
                             <div class="timeline-content">
-                                <h4>Erupsi Basaltik</h4>
-                                <p>Magma basaltis berviskositas sangat rendah tumpah ke permukaan bumi, menyebar luas membentuk aliran lava pijar di kawasan Lampung Timur purba.</p>
+                                <h4>1. Erupsi Vulkanik</h4>
+                                <p>Gunung api purba memuntahkan lava basaltik yang memiliki viskositas (kekentalan) sangat rendah, sehingga mampu mengalir cepat ke area dataran.</p>
                             </div>
                         </div>
-                        <div class="timeline-item right">
+                        <div class="timeline-item right fade-up">
                             <div class="timeline-content">
-                                <h4>Kristalisasi Kerak</h4>
-                                <p>Bagian luar aliran lava yang terpapar suhu udara mendingin dengan drastis, membentuk kerak isolator keras yang menjebak panas aliran lava di bawahnya.</p>
+                                <h4>2. Pendinginan Permukaan</h4>
+                                <p>Udara dingin di atmosfer menyebabkan bagian terluar (permukaan) dari aliran lava membeku lebih dahulu, membentuk kerak atau cangkang keras pelindung.</p>
                             </div>
                         </div>
-                        <div class="timeline-item left">
+                        <div class="timeline-item left fade-up">
                             <div class="timeline-content">
-                                <h4>Pengosongan Lorong</h4>
-                                <p>Suplai magma berhenti, sisa lava cair di perut terowongan meluncur habis akibat gravitasi, menyisakan ruang hampa megah yang kini disebut lava tube.</p>
+                                <h4>3. Aliran Sub-permukaan</h4>
+                                <p>Terisolasi dari suhu luar, magma pijar di bawah kerak yang sudah membeku ini tetap panas dan terus mengalir maju membelah jalur di dalamnya.</p>
                             </div>
                         </div>
-                        <div class="timeline-item right">
+                        <div class="timeline-item right fade-up">
                             <div class="timeline-content">
-                                <h4>Penyingkapan</h4>
-                                <p>Pendinginan absolut dan proses pelapukan alami berabad-abad meruntuhkan sebagian atap rapuh (sinkhole), menyingkap portal rahasia menuju Gua Pandan.</p>
+                                <h4>4. Terbentuknya Gua</h4>
+                                <p>Saat pasokan lava dari pusat letusan berhenti, sisa magma mengalir habis keluar meningalkan terowongan kosong yang kini kita kenal sebagai Gua Pandan.</p>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- Galeri Visual -->
+        <!-- Galeri Section -->
         <section id="galeri">
-            <div class="section-block alt-bg">
+            <div class="section-block">
                 <div class="container fade-up">
                     <div class="section-header">
-                        <h2>Galeri Visual</h2>
-                        <p>Jelajahi keindahan arsiktektur batuan vulkanik mahakarya alam.</p>
+                        <h2>Galeri Penjelajahan</h2>
+                        <p>Dokumentasi keindahan struktur vulkanik dan penelusuran Gua Pandan.</p>
                     </div>
                     
                     <div class="gallery-grid">
                         <div class="gallery-item">
-                            <img src="foto-lorong.jpg" alt="Lorong Lava">
+                            <img src="galeri-1.jpg" onerror="this.src='https://images.unsplash.com/photo-1549887552-cb1071d3e5ca?q=80&w=2000&auto=format&fit=crop'" alt="Mulut Gua">
+                            <div class="gallery-overlay">
+                                <h4>Mulut Gua Pandan</h4>
+                                <p>Akses masuk yang dikelilingi vegetasi rapat.</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="galeri-2.jpg" onerror="this.src='https://images.unsplash.com/photo-1602521996796-02e07dd38e12?q=80&w=2000&auto=format&fit=crop'" alt="Dinding Basalt">
+                            <div class="gallery-overlay">
+                                <h4>Tekstur Dinding</h4>
+                                <p>Bongkahan batuan beku basalt vesikular yang khas.</p>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="galeri-3.jpg" onerror="this.src='https://images.unsplash.com/photo-1574512969018-86d1b7c1264c?q=80&w=2000&auto=format&fit=crop'" alt="Lorong Dalam">
                             <div class="gallery-overlay">
                                 <h4>Lorong Utama</h4>
-                                <p style="font-size: 0.85rem; opacity: 0.8;">Sisa lintasan aliran lava pijar.</p>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="foto-vesikular.jpg" alt="Struktur Batuan">
-                            <div class="gallery-overlay">
-                                <h4>Tekstur Vesikular</h4>
-                                <p style="font-size: 0.85rem; opacity: 0.8;">Rongga gas vulkanik yang membeku.</p>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="foto-gerbang.jpg" alt="Akses Masuk Gua">
-                            <div class="gallery-overlay">
-                                <h4>Akses Masuk (Sinkhole)</h4>
-                                <p style="font-size: 0.85rem; opacity: 0.8;">Titik masuk menuju lorong utama.</p>
+                                <p>Dimensi terowongan utama bentukan sisa lelehan lava.</p>
                             </div>
                         </div>
                     </div>
@@ -1161,38 +1074,36 @@
             </div>
         </section>
 
-        <!-- Lokasi & Akses -->
+        <!-- Lokasi Section -->
         <section id="lokasi">
-            <div class="section-block">
+            <div class="section-block alt-bg">
                 <div class="container fade-up">
                     <div class="section-header">
-                        <h2>Lokasi & Informasi Akses</h2>
-                        <p>Panduan rute menuju situs Geoheritage Gua Pandan.</p>
+                        <h2>Lokasi Geosite</h2>
+                        <p>Kunjungi secara langsung dan saksikan keajaiban alam ini secara nyata.</p>
                     </div>
-
+                    
                     <div class="location-grid">
                         <div class="location-info">
-                            <h3>Gua Pandan, Lampung Timur</h3>
+                            <h3>Informasi Akses</h3>
                             <div class="location-details">
                                 <p>
-                                    <i class="ph-fill ph-map-pin"></i>
-                                    <span>Sukadana, Kabupaten Lampung Timur, <br>Provinsi Lampung, Indonesia.</span>
+                                    <i class="ph-duotone ph-map-pin-line"></i>
+                                    <span><strong>Alamat:</strong><br>Kecamatan Sukadana, Kabupaten Lampung Timur, Provinsi Lampung, Indonesia.</span>
                                 </p>
                                 <p>
-                                    <i class="ph-fill ph-car-profile"></i>
-                                    <span>Akses kendaraan aspal memadai, disambung jalur setapak khusus alam untuk mempertahankan kelestarian situs.</span>
+                                    <i class="ph-duotone ph-car-profile"></i>
+                                    <span><strong>Aksesibilitas:</strong><br>Berjarak sekitar 2-3 jam perjalanan darat dari Kota Bandar Lampung. Dapat diakses menggunakan kendaraan roda dua maupun roda empat hingga area parkir.</span>
                                 </p>
                                 <p>
-                                    <i class="ph-fill ph-warning-circle"></i>
-                                    <span>Perhatikan tata tertib konservasi geologi. Gunakan alas kaki anti-selip dan bawa pelita yang cukup.</span>
+                                    <i class="ph-duotone ph-warning-circle"></i>
+                                    <span><strong>Perhatian:</strong><br>Pastikan membawa alat penerangan memadai, helm safety, dan sepatu tracking karena lantai gua berbatu dan licin.</span>
                                 </p>
                             </div>
                         </div>
                         <div class="map-container">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.16981663397!2d105.66716237452047!3d-5.391073253888763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40fa36a5b1d2b7%3A0xd9a1392387c317de!2sGOA%20PANDAN%20GIRI%20MULYO!5e0!3m2!1sen!2sid!4v1777660830794!5m2!1sen!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                            <a href="https://www.google.com/maps/search/?api=1&query=-5.3910732,105.6671624" target="_blank" class="btn-map-float">
-                                <i class="ph-bold ph-navigation-arrow"></i> Buka Navigasi
-                            </a>
+                            <!-- Placeholder Map Google -->
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127161.43916965427!2d105.47458140366668!3d-5.045763529324637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40b79cfb7ecb15%3A0x3039d80b220cc70!2sKabupaten%20Lampung%20Timur%2C%20Lampung!5e0!3m2!1sid!2sid!4v1715000000000!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
@@ -1201,150 +1112,4 @@
 
         <!-- Profil Pengembang -->
         <section id="profil">
-            <div class="section-block alt-bg">
-                <div class="container fade-up">
-                    <div class="section-header">
-                        <h2>Profil Pengembang</h2>
-                        <p>Mengenal lebih dekat kreator di balik project edukasi interaktif Geoheritage Gua Pandan.</p>
-                    </div>
-
-                    <div class="profile-card">
-                        <!-- Ganti nilai src di bawah ini dengan nama file foto Anda -->
-                        <img src="Foto-Creator.jpg" alt="Foto Profil" class="profile-img">
-                        
-                        <div class="profile-info">
-                            <h3>Ignatius Canapolo Sinaga</h3>
-                            <h4>Project Creator & Geologist</h4>
-                            <p>Seorang geologist yang antusias dalam eksplorasi geologi, mineral, minyak dan gas bumi, serta geowisata. Project ini didedikasikan untuk memajukan sarana edukasi interaktif tentang fenomena lorong lava di wilayah Nusantara.</p>
-                            
-                            <!-- Tautan Media Sosial -->
-                            <div class="social-links">
-                                <a href="https://www.instagram.com/ignatius_sinaga?igsh=N3FtcGpqZ3Y4ZTg0" target="_blank" title="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
-                                <a href="https://www.linkedin.com/in/ignatiussinaga" target="_blank" title="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Nilai Geoheritage -->
-        <section id="geoheritage">
-            <div class="heritage-box">
-                <div class="container fade-up">
-                    <h2>Warisan Bumi yang Tak Ternilai</h2>
-                    <p>Gua Pandan adalah monumen vulkanisme basaltik absolut di Lampung Timur. Pelestariannya menjadi landasan krusial bagi riset geologi internasional, edukasi ilmu kebumian, serta proteksi konservasi situs "Lava Tube" berskala global yang amat eksklusif di tanah Sumatera.</p>
-                    <button onclick="openExploreView()" class="btn-primary" style="background-color: var(--white); color: var(--theme-dark);">
-                        Mulai Eksplorasi Virtual
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer>
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-logo">
-                        <i class="ph-fill ph-mountains"></i> GeoPandan
-                    </div>
-                    <p style="color: #a1a1aa;">Platform Eksplorasi Geologi Virtual Realitas Premium.</p>
-                </div>
-                <div class="footer-bottom">
-                    <p>&copy; 2026 Geoheritage Gua Pandan. Dirancang untuk Edukasi Keunggulan Geologis.</p>
-                </div>
-            </div>
-        </footer>
-
-    </div>
-
-    <!-- ================= HALAMAN 2: EKSPLORASI 360° (KUULA) ================= -->
-    <div id="view-explore">
-        
-        <!-- Tombol Kembali -->
-        <button class="btn-back-float" onclick="closeExploreView()">
-            <i class="ph-bold ph-arrow-left"></i> Kembali Utama
-        </button>
-
-        <!-- Panel Informasi Geologi -->
-        <div class="info-panel" id="kuula-info-panel">
-            <button class="toggle-panel" onclick="document.getElementById('kuula-info-panel').style.display='none'">
-                <i class="ph ph-x"></i>
-            </button>
-            <h3><i class="ph-fill ph-info"></i> Stasiun Eksplorasi</h3>
-            <p>Anda berada di chamber eksklusif Gua Pandan. Soroti tekstur masif dinding lava purba.</p>
-            
-            <div class="instruksi-box">
-                <strong>Panduan Kendali:</strong>
-                <ul>
-                    <li><i class="ph-bold ph-hand-grabbing"></i> Tahan & Geser untuk pandangan panorama 360°.</li>
-                    <li><i class="ph-bold ph-magnifying-glass-plus"></i> Scroll presisi untuk investigasi detail (Zoom).</li>
-                    <li><i class="ph-bold ph-target"></i> Sentuh marka navigasi untuk transisi koordinat.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Wadah Iframe Kuula -->
-        <div class="kuula-container">
-            <iframe 
-                src="https://kuula.co/share/7rt9F/collection/7YykL?fs=1&vr=1&zoom=1&sd=1&initload=0&thumbs=1&info=0&logo=1&logosize=162" 
-                frameborder="0" 
-                allowfullscreen 
-                allow="xr-spatial-tracking; gyroscope; accelerometer">
-            </iframe>
-        </div>
-
-    </div>
-
-    <!-- ================= SCRIPTS ================= -->
-    <script>
-        /* === UI & INTERAKSI DASAR === */
-
-        // Mobile Menu Toggle
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navLinks = document.getElementById('nav-links');
-
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        function closeMobileMenu() {
-            if(window.innerWidth <= 768) {
-                navLinks.classList.remove('active');
-            }
-        }
-
-        // View Toggles (Home <-> Explore)
-        function openExploreView() {
-            document.getElementById('view-home').style.display = 'none';
-            document.getElementById('view-explore').style.display = 'block';
-            closeMobileMenu();
-        }
-
-        function closeExploreView() {
-            document.getElementById('view-explore').style.display = 'none';
-            document.getElementById('view-home').style.display = 'block';
-            window.scrollTo(0, 0);
-        }
-
-        // Scroll Animations (Intersection Observer)
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        };
-
-        const observer = new IntersectionObserver(function(entries, observer) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-up').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
-</body>
-</html>
+            <div class="section-block">
