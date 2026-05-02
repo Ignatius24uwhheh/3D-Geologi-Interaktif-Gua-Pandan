@@ -898,8 +898,8 @@
                 <div class="brand-container">
                     <div class="partner-logos">
                         <!-- Gunakan placeholder image (fallback) jika file lokal tidak ditemukan -->
-                        <img src="foto-itera.png" onerror="this.src='https://placehold.co/100x45?text=ITERA'" alt="Logo ITERA">
-                        <img src="foto-gl.png" onerror="this.src='https://placehold.co/100x45?text=Geo'" alt="Logo Teknik Geologi">
+                        <img src="./foto-itera.png" onerror="this.src='https://placehold.co/100x45?text=ITERA'" alt="Logo ITERA">
+                        <img src="./foto-gl.png" onerror="this.src='https://placehold.co/100x45?text=Geo'" alt="Logo Teknik Geologi">
                     </div>
                     <div class="logo">
                         <i class="ph-fill ph-mountains"></i>
@@ -948,7 +948,7 @@
                         </div>
                         <div class="about-image">
                             <!-- Image dengan Lazy Loading -->
-                            <img src="foto-gua-pandan.jpg" loading="lazy" decoding="async" onerror="this.src='https://images.unsplash.com/photo-1599839619722-39751411ea63?q=80&w=2070&auto=format&fit=crop'" alt="Sistem Lorong Lava Gua Pandan">
+                            <img src="./foto-gua-pandan.jpg" loading="lazy" decoding="async" onerror="this.src='https://images.unsplash.com/photo-1599839619722-39751411ea63?q=80&w=2070&auto=format&fit=crop'" alt="Sistem Lorong Lava Gua Pandan">
                         </div>
                     </div>
                 </div>
@@ -1049,25 +1049,30 @@
                     </div>
                     
                     <div class="gallery-grid">
+                        <!-- Foto Lorong -->
                         <div class="gallery-item">
-                            <img src="galeri-1.jpg" loading="lazy" decoding="async" onerror="this.src='https://images.unsplash.com/photo-1549887552-cb1071d3e5ca?q=80&w=2000&auto=format&fit=crop'" alt="Mulut Gua">
+                            <img src="./foto-lorong.jpg" loading="lazy" decoding="async" onerror="this.src='https://images.unsplash.com/photo-1574512969018-86d1b7c1264c?q=80&w=2000&auto=format&fit=crop'" alt="Lorong Lava">
+                            <div class="gallery-overlay">
+                                <h4>Lorong Lava</h4>
+                                <p>Terowongan memanjang hasil pembekuan sisa aliran magma purba di bawah permukaan.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Foto Vesikular -->
+                        <div class="gallery-item">
+                            <img src="./foto-vesikular.jpg" loading="lazy" decoding="async" onerror="this.src='https://images.unsplash.com/photo-1602521996796-02e07dd38e12?q=80&w=2000&auto=format&fit=crop'" alt="Tekstur Vesikular">
+                            <div class="gallery-overlay">
+                                <h4>Tekstur Vesikular</h4>
+                                <p>Rongga udara pada dinding basalt akibat gas vulkanik yang terperangkap saat proses pendinginan cepat.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Foto Mulut Gua -->
+                        <div class="gallery-item">
+                            <img src="./foto-gerbang.jpg" loading="lazy" decoding="async" onerror="this.src='https://images.unsplash.com/photo-1549887552-cb1071d3e5ca?q=80&w=2000&auto=format&fit=crop'" alt="Mulut Gua Pandan">
                             <div class="gallery-overlay">
                                 <h4>Mulut Gua Pandan</h4>
-                                <p>Akses masuk yang dikelilingi vegetasi rapat.</p>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="galeri-2.jpg" loading="lazy" decoding="async" onerror="this.src='https://images.unsplash.com/photo-1602521996796-02e07dd38e12?q=80&w=2000&auto=format&fit=crop'" alt="Dinding Basalt">
-                            <div class="gallery-overlay">
-                                <h4>Tekstur Dinding</h4>
-                                <p>Bongkahan batuan beku basalt vesikular yang khas.</p>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="galeri-3.jpg" loading="lazy" decoding="async" onerror="this.src='https://images.unsplash.com/photo-1574512969018-86d1b7c1264c?q=80&w=2000&auto=format&fit=crop'" alt="Lorong Dalam">
-                            <div class="gallery-overlay">
-                                <h4>Lorong Utama</h4>
-                                <p>Dimensi terowongan utama bentukan sisa lelehan lava.</p>
+                                <p>Akses pintu masuk alami menuju ekosistem bawah tanah yang eksotis dan dikelilingi vegetasi rapat.</p>
                             </div>
                         </div>
                     </div>
@@ -1123,7 +1128,6 @@
                     <div class="profile-grid">
                         <!-- Profil 1 -->
                         <div class="profile-card">
-                            <!-- Mengubah src menjadi ./foto-creator.jpg -->
                             <img src="./foto-creator.jpg" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/400x400?text=Ignatius'" alt="Ignatius Canapolo Sinaga" class="profile-img">
                             <div class="profile-info">
                                 <h3>Ignatius Canapolo Sinaga</h3>
@@ -1139,7 +1143,7 @@
 
                         <!-- Profil 2: Gilang Radityo -->
                         <div class="profile-card">
-                            <img src="foto-gilang.jpg" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/400x400?text=Gilang'" alt="Gilang Radityo" class="profile-img">
+                            <img src="./foto-gilang.jpg" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/400x400?text=Gilang'" alt="Gilang Radityo" class="profile-img">
                             <div class="profile-info">
                                 <h3>Gilang Radityo</h3>
                                 <h4>Teknik Geologi, ITERA</h4>
@@ -1154,7 +1158,7 @@
 
                         <!-- Profil 3: Rafi Barus -->
                         <div class="profile-card">
-                            <img src="foto-rafi.jpg" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/400x400?text=Rafi'" alt="Rafi Barus" class="profile-img">
+                            <img src="./foto-rafi.jpg" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/400x400?text=Rafi'" alt="Rafi Barus" class="profile-img">
                             <div class="profile-info">
                                 <h3>Rafi Barus</h3>
                                 <h4>Teknik Geologi, ITERA</h4>
