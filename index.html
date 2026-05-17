@@ -1212,7 +1212,12 @@
                 <div class="profile-grid">
                     <!-- Profil 1 -->
                     <div class="profile-card">
-                        <img src="./foto-creator..jpg" loading="lazy" decoding="async" alt="Ignatius Canapolo Sinaga" class="profile-img" />
+                        <img src="foto-creator..jpg" 
+                             onerror="if(!this.dataset.triedEncoded) { this.dataset.triedEncoded='true'; this.src='foto-creator%2e%2ejpg'; } else if(!this.dataset.triedSingle) { this.dataset.triedSingle='true'; this.src='foto-creator.jpg'; } else { this.src='https://placehold.co/160x160/121212/D4AF37?text=Ignatius'; }" 
+                             loading="lazy" 
+                             decoding="async" 
+                             alt="Ignatius Canapolo Sinaga" 
+                             class="profile-img" />
                         <div class="profile-info">
                             <h3>Ignatius Canapolo Sinaga</h3>
                             <h4>Teknik Geologi, ITERA</h4>
